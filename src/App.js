@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
+import './assets/css/fonts.css';
 import Home from './pages/Home';
 import SelectTrain from './pages/SelectTrain';
 import SelectSeat from './pages/SelectSeat';

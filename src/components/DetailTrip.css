@@ -1,0 +1,183 @@
+/* Strat details trip */
+
+.details-trip-cover {
+    background-color: var(--mediumDarckGrey);
+  }
+  
+  .header-detail-trip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 108px;
+  
+    font-family: "Roboto-Medium";
+    font-size: 30px;
+    text-transform: uppercase;
+    color: var(--brightGreyText);
+  
+    border-bottom: 1px solid var(--brightGreyText);
+  }
+  
+  .way-to-trip,
+  .way-back-trip,
+  .passengers-in-trip {
+    padding-left: 28px;
+    padding-top: 22px;
+    padding-right: 27px;
+  
+    border-bottom: 1px solid var(--brightGreyText);
+  }
+  
+  .way-here,
+  .way-back,
+  .way-passengers {
+    display: flex;
+    align-items: center;
+    margin-bottom: 53px;
+  }
+  
+  .way-trip-here-text,
+  .passengers-in-trip-text {
+    margin-left: 12px;
+    font-family: "Roboto-Bold";
+    font-size: 30px;
+    color: var(--whiteColor);
+  }
+  
+  .way-trip-here-date {
+    margin-left: 20px;
+  
+    font-family: "Roboto-Regular";
+    font-size: 18px;
+    color: var(--whiteColor);
+  }
+  
+  .ico-roll-up-trip {
+    margin-left: auto;
+    cursor: pointer;
+  }
+  
+  .number-train,
+  .name-train {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 22px;
+  }
+  
+  .text-train-inner,
+  .time-in-way {
+    font-family: "Roboto-Regular";
+    font-size: 18px;
+    color: var(--brightGreyText);
+  }
+  
+  .number-train-inner {
+    font-family: "Roboto-Bold";
+    font-size: 24px;
+    color: var(--whiteColor);
+  }
+  
+  .name-train-inner {
+    font-family: "Roboto-Bold";
+    font-size: 16px;
+    color: var(--whiteColor);
+    text-align: right;
+  }
+  
+  .time-in-way {
+    padding-top: 24px;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+  
+  .all-times-in-way {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+  
+    margin-bottom: 20px;
+  }
+  
+  .time-start-end {
+    font-family: "Roboto-Bold";
+    font-size: 24px;
+    color: var(--whiteColor);
+  }
+  
+  .time-start-end span {
+    font-family: "Roboto-Regular";
+    font-size: 18px;
+    color: var(--lightGrey);
+  
+  }
+  
+  .places-on-the-way {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 53px;
+  }
+  
+  .start-place,
+  .finish-place {
+    font-family: "Roboto-Regular";
+    font-size: 18px;
+    color: var(--whiteColor);
+  
+  }
+  
+  .start-place span,
+  .finish-place span {
+    font-size: 16px;
+    color: var(--lightGrey);
+  }
+  
+  .number-of-passengers {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 46px;
+  }
+  
+  .row-of-passengers,
+  .total-price-all-trip {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .number-passengers {
+    font-family: "Roboto-Regular";
+    font-size: 18px;
+    color: var(--brightGreyText);
+  }
+  
+  .total-price-all-trip {
+    align-items: center;
+    padding-bottom: 33px;
+    padding-left: 28px;
+    padding-top: 30px;
+    padding-right: 27px;
+  }
+  
+  .total-trice-by-passengers {
+    display: flex;
+  
+    font-family: "Roboto-Bold";
+    font-size: 24px;
+    color: var(--whiteColor);
+    text-align: right;
+  }
+  
+  .total-price-text {
+    font-family: "Roboto-Bold";
+    font-size: 30px;
+    color: var(--whiteColor);
+    text-transform: uppercase;
+  }
+  
+  .total-price {
+    font-family: "Roboto-Bold";
+    font-size: 48px;
+    color: var(--orangeColor);
+  }
+  
+  /* End details trip */

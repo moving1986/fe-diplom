@@ -1,0 +1,91 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-card {
+    width: 666px;
+
+    background: var(--whiteColor);
+    border: 1px solid var(--mediumGrey);
+    box-shadow: 0px 2px 2px 0px #00000040;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    padding: 38px;
+    border: 1px dashed var(--lightGrey);
+}
+
+.modal-header.successSubscribe-header {
+    background-color: #FFF5005C;
+}
+
+.modal-header.errorSubscribe-header {
+    background: #FF3D0061;
+
+}
+
+.modal-icon {
+    margin-right: 12px;
+    font-size: 24px;
+}
+
+.modal-title {
+    font-size: 24px;
+    color: var(--blackColor);
+}
+
+.modal-body {
+    padding: 38px;
+    border: 1px dashed var(--lightGrey);
+}
+
+.modal-message {
+    font-size: 18px;
+    color: var(--blackColor);
+}
+
+.modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 38px;
+
+}
+
+.modal-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 233px;
+    height: 52px;
+
+    font-family: "Roboto-Bold";
+    font-size: 24px;
+    color: var(--grey);
+
+    border: 1px solid var(--grey);
+    cursor: pointer;
+
+    &:hover {
+        color: var(--orangeColor);
+        box-shadow: 0px 4px 4px 0px #00000040;
+    }
+
+    &:active {
+        background: var(--orangeColor);
+        color: var(--grey);
+        border: 0;
+        box-shadow: 0px 4px 4px 0px #00000040;
+    }
+}

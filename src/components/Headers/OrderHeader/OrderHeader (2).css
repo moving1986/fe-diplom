@@ -1,0 +1,65 @@
+  .main-header {
+    width: 100%;
+    min-height: 596px;
+  
+    background: url("../../assets/images/header-order-bg.jpg") no-repeat center;
+    background-size: cover;
+  }
+  
+  
+  .nav-bar-main {
+    margin-bottom: 120px;
+  }
+  
+  .form-search-ticket {
+    height: 350px;
+    padding-top: 44px;
+     
+    background: rgba(41, 41, 41, 0.69);
+    }
+  
+  .form-search-headers {
+    display: flex;
+  }
+  
+  .header-search-ticket-way,
+  .header-search-ticket-date {
+    width: 50%;
+    margin-bottom: 17px;
+  
+    font-family: "Roboto-Light";
+    font-size: 30px;
+  
+    color: var(--whiteColor);
+  }
+  
+  .header-search-ticket-way {
+    padding-left: 52px;
+  }
+  
+  .header-search-ticket-date {
+    padding-left: 35px;
+  }
+  
+  .form-search-ticket {
+    margin-bottom: 0px;
+  
+  }
+  
+  .form-search-inputs {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .date-input {
+    margin-left: 35px;
+  }
+  
+  .form-serch-button {
+    padding-top: 47px;
+    padding-right: 42px;
+  
+    border: 0;
+  }

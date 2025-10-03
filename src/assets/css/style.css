@@ -1,0 +1,2075 @@
+:root {
+    --orangeColor: #FFA800;
+    --lightOrange: #FCDC9D;
+    --darckOrange: #FFA80070;
+    --grey: #292929;
+    --brightGreyText: #E5E5E5;
+    --lightGrey: #928F94;
+    --mediumGrey: #C4C4C4;
+    --whiteColor: #ffffff;
+    --blackColor: #000000;
+    --darckGrey: #2D2B2F;
+    --mainBgColor: #F7F5F9;
+    --mediumDarckGrey: #3E3C41;
+    --mediumGrayBg: #E4E0E9;
+    --errorColor: rgba(255, 61, 0, 0.8);
+    --errorBorderColor: rgba(255, 61, 0, 0.76);
+    --greenColorSuccess: #B2F6A1;
+    --lightGreyBgHeader: #F9F9F9;
+    --brightGreyBg: #F4F3F6;
+
+
+}
+
+.container {
+    max-width: 1404px;
+    margin: 0 auto;
+}
+
+.container-search-ticket {
+    max-width: 1490px;
+    margin: 0 auto;
+}
+
+h1 {
+    position: absolute;
+    left: 81px;
+    top: 415px;
+
+    font-family: "Roboto-Thin";
+    font-size: 72px;
+    font-weight: 100;
+
+    color: var(--whiteColor);
+    text-transform: none;
+}
+
+h2 {
+    margin-bottom: 30px;
+
+    font-family: "Roboto-Medium";
+    font-size: 36px;
+
+    color: var(--grey);
+}
+
+h3 {
+    font-family: "Roboto-Medium";
+    font-size: 36px;
+
+    color: var(--whiteColor);
+}
+
+.right {
+    text-align: right;
+}
+
+/*  Start header    */
+
+main {
+    margin-bottom: 122px;
+}
+
+.main-header {
+    position: relative;
+    width: 100%;
+    min-height: 985px;
+
+    background: url("../images/main-head-bg.jpg") no-repeat center;
+    background-color: var(--blackColor);
+    background-size: cover;
+}
+
+.logo {
+    height: 64px;
+    padding-top: 15px;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.logo-text {
+    font-family: "Roboto-Black";
+    font-size: 36px;
+    color: var(--brightGreyText);
+}
+
+.nav-bar {
+    height: 94px;
+    background: var(--grey);
+}
+
+.nav-menu {
+    display: flex;
+}
+
+.nav-menu__item {
+    padding-top: 26px;
+    margin-right: 84px;
+
+    font-family: "Roboto-Light";
+    font-size: 30px;
+    color: var(--whiteColor);
+}
+
+h1>span {
+    font-family: "Roboto-Bold";
+}
+
+.search-ticket {
+    position: absolute;
+    top: 253px;
+    right: 0;
+
+    width: 729px;
+    height: 574px;
+    padding-top: 79px;
+
+    background: rgba(41, 41, 41, 0.8);
+}
+
+.header-search-ticket {
+    margin-left: 28px;
+    margin-bottom: 7px;
+
+    font-family: "Roboto-Light";
+    font-size: 30px;
+
+    color: var(--whiteColor);
+}
+
+.form-search-ticket {
+    margin-bottom: 71px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+input[type="date"]::-moz-calendar-picker-indicator {
+    display: none;
+}
+
+input[type="date"]::-ms-expand {
+    display: none;
+}
+
+input[type="date"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.search-input-way,
+.search-input-date {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 21px;
+}
+
+.way-input,
+.date-input {
+    width: 325px;
+    height: 60px;
+    padding: 19px;
+
+    font-family: "Roboto-Regular";
+    font-size: 18px;
+
+    color: var(--brightGreyText);
+    background-color: var(--whiteColor);
+    border: 0;
+    border-radius: 3px;
+}
+
+.way-input {
+    background-image: url("../images/input-way-bg.svg");
+    background-repeat: no-repeat;
+    background-position: right 15px top 15px;
+}
+
+.date-input {
+    background-image: url("../images/input-date-bg.svg");
+    background-repeat: no-repeat;
+    background-position: right 15px top 15px;
+}
+
+.reload-way {
+    padding: 18px 8px;
+}
+
+.form-serch-button {
+    padding-top: 92px;
+    padding-right: 24px;
+
+    text-align: right;
+}
+
+.serach-ticket-btn {
+    width: 323px;
+    height: 60px;
+
+    font-family: "Roboto-Bold";
+    font-size: 24px;
+    text-transform: uppercase;
+
+    color: var(--grey);
+    background: var(--orangeColor);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.loading-line {
+    height: 8px;
+
+    background-color: var(--orangeColor);
+    margin-bottom: 144px;
+}
+
+/* End header */
+
+/* Start body */
+
+
+
+.about-us {
+    margin-bottom: 91px;
+}
+
+.about-us-text {
+    display: flex;
+}
+
+.about-us-text-left__line {
+    width: 8px;
+    background-color: var(--orangeColor);
+}
+
+.about-us-text__inner p {
+    margin-left: 19px;
+
+    font-family: "Roboto-Regular";
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    color: var(--grey);
+}
+
+.about-us-text__inner>p {
+    padding-bottom: 24px;
+}
+
+.about-us-text__inner>p>span {
+    font-family: "Roboto-Bold";
+}
+
+.how-it-worck {
+    width: 100%;
+    min-height: 575px;
+    padding-top: 69px;
+
+    background: url("../images/how-it-worck-bg.jpg") no-repeat center;
+    background-color: var(--orangeColor);
+    background-size: cover;
+}
+
+.about-how-it-worck {
+    display: flex;
+    justify-content: space-between;
+}
+
+.more-advantages-btn {
+    width: 325px;
+    height: 60px;
+
+    font-family: "Roboto-Bold";
+    font-size: 24px;
+    text-align: center;
+
+    color: var(--whiteColor);
+    background: none;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.our-advantages {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 107px;
+    padding-left: 261px;
+    padding-right: 255px;
+}
+
+.our-advantages p {
+    padding-top: 34px;
+
+    font-family: "Roboto-Regular";
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: var(--whiteColor);
+}
+
+.ico-advantages {
+    width: 226px;
+
+    text-align: center;
+}
+
+.reviews {
+    padding-top: 152px;
+}
+
+.review-line {
+    display: flex;
+    gap: 85px;
+
+    padding-top: 33px;
+
+}
+
+.reviews-card {
+    flex: 1;
+    display: flex;
+    gap: 16px;
+
+}
+
+.reviews-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.reviews-title {
+    font-family: "Roboto-Medium";
+    font-size: 24px;
+    line-height: 28px;
+
+    color: var(--blackColor);
+}
+
+.reviews-text {
+    padding-top: 18px;
+
+    font-family: "Roboto-Light-Italic";
+    font-size: 18px;
+    line-height: 21px;
+
+    color: var(--lightGrey);
+}
+
+.reviuws-sliders-btn {
+    display: flex;
+}
+
+.slider-dotted {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 137px;
+}
+
+.slide-dotted {
+    width: 19px;
+    height: 19px;
+    margin-left: 10px;
+
+    border-radius: 50%;
+    background-color: var(--brightGreyText);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.activeSlide {
+    background-color: var(--mediumGrey);
+}
+
+
+/* End body */
+
+/* Start footer */
+
+.footer {
+    background-color: var(--darckGrey);
+}
+
+.footer-content {
+    display: flex;
+}
+
+.footer-contact-header,
+.footer-header-subscribe {
+    padding-top: 49px;
+
+    font-family: "Roboto-Medium";
+    font-size: 30px;
+
+    color: var(--whiteColor);
+}
+
+
+.ico-contact {
+    width: 30px;
+    height: 30px;
+
+    margin-bottom: 32px;
+}
+
+.footer-contacts {
+    width: 50%;
+}
+
+.footer-subscribe {
+    width: 50%;
+}
+
+.footer-contacts-inner {
+    display: flex;
+    gap: 36px;
+    padding-top: 36px;
+}
+
+.footer-conatcts-text__inner {
+    padding: 4px;
+    margin-bottom: 32px;
+
+    font-family: "Roboto-Regular";
+    font-size: 24px;
+    color: var(--brightGreyText);
+}
+
+.header-subscribe-form {
+    padding-top: 30px;
+    margin-bottom: 24px;
+
+    font-family: "Roboto-Regular";
+    font-size: 24px;
+    color: var(--brightGreyText);
+}
+
+.footer-subscribe-input {
+    width: 447px;
+    height: 60px;
+    padding: 17px;
+
+    font-family: "Roboto-Regular";
+    font-size: 24px;
+    color: var(--brightGreyText);
+
+    background-color: var(--whiteColor);
+    border-radius: 3px;
+}
+
+.subscribe-btn {
+    width: 169px;
+    height: 60px;
+    margin-left: 33px;
+
+    font-family: "Roboto-Regular";
+    font-size: 24px;
+    color: var(--brightGreyText);
+    text-transform: uppercase;
+
+    background: none;
+    border: 1px solid var(--whiteColor);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.footer-social-subscribe-header {
+    padding-top: 44px;
+    margin-bottom: 28px;
+
+    font-family: "Roboto-Medium";
+    font-size: 30px;
+    color: var(--whiteColor);
+}
+
+.footer-social-subscribe {
+    display: flex;
+}
+
+.ico-social:nth-child(n+2) {
+    margin-left: 48px;
+}
+
+.footer-end-line {
+    height: 96px;
+    padding-top: 26px;
+
+    border-top: 1px solid var(--brightGreyText);
+}
+
+.footer-end-line__inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-copyright {
+    font-family: "Roboto-Regular";
+    font-size: 24px;
+    color: var(--brightGreyText);
+}
+
+/* End main-page */
+
+/* Start select-train */
+
+/* End select-train */
+
+/* Strat page select-seat */
+
+.header-select-seat {
+    margin-bottom: 48px;
+
+    font-family: "Roboto-Medium";
+    font-size: 30px;
+    color: var(--grey);
+    text-transform: uppercase;
+}
+
+.select-seat {
+    width: 959px;
+
+    background: var(--whiteColor);
+    border: 1px solid var(--mediumGrey);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.main-select-seat {
+    display: flex;
+    flex-direction: column;
+    gap: 29px;
+}
+
+.select-dif-train,
+.select-dif-train-right {
+    display: flex;
+    align-items: center;
+    height: 128px;
+}
+
+.select-dif-train {
+    padding-left: 19px;
+}
+
+.select-dif-train-right {
+    justify-content: end;
+    padding-right: 24px;
+}
+
+.btn-dif-train {
+    width: 325px;
+    height: 60px;
+
+    margin-left: 10px;
+
+    font-family: "Roboto-Bold";
+    font-size: 24px;
+    color: var(--grey);
+    text-align: center;
+
+
+    border: 1px solid var(--grey);
+    border-radius: 5px;
+
+}
+
+.details-train-way {
+    display: flex;
+    height: 123px;
+    background: var(--mainBgColor);
+}
+
+.train-way-number {
+    display: flex;
+    flex-direction: column;
+    width: 148px;
+    padding-top: 17px;
+
+
+}
+
+.ico-details-train {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 92px;
+
+}
+
+.details-train-number {
+    display: flex;
+
+    font-family: "Roboto-Bold";
+    font-size: 24px;
+    color: var(--mediumDarckGrey);
+}
+
+.detail-train-way {
+    font-family: "Roboto-Regular";
+    font-size: 16px;
+    color: var(--blackColor);
+}
+
+.detail-train-way>span {
+    color: var(--lightGrey);
+}
+
+.details-way {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 480px;
+    padding-left: 36px;
+    padding-right: 45px;
+
+    border-left: 1px solid var(--whiteColor);
+}
+
+.details-time {
+    font-family: "Roboto-Bold";
+    font-size: 24px;
+    color: var(--blackColor);
+}
+
+.details-city-way {
+    font-family: "Roboto-Regular";
+    font-size: 16px;
+    color: var(--blackColor);
+}
+
+.details-city-way>span {
+    color: var(--lightGrey);
+}
+
+.details-travel-time-way {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 237px;
+
+    border-left: 1px solid var(--whiteColor);
+}
+
+.details-travel-time {
+    padding-left: 10px;
+
+    font-family: "Roboto-Regular";
+    font-size: 16px;
+    color: var(--blackColor);
+    text-align: left;
+}
+
+.header-count-tickets {
+    height: 96px;
+    padding-top: 40px;
+    padding-left: 19px;
+
+    font-family: "Roboto-Bold";
+    font-size: 30px;
+    color: var(--grey);
+}
+
+.count-tickets {
+    display: flex;
+    height: 241px;
+    border-bottom: 1px dashed var(--mediumGrey);
+}
+
+.ticket-block-active {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    width: 317px;
+    height: 192px;
+    padding-left: 36px;
+    padding-top: 20px;
+
+    background: var(--mainBgColor);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.ticket-count-inner {
+    display: flex;
+    align-items: center;
+    padding-left: 17px;
+    width: 240px;
+    height: 50px;
+
+    background: var(--whiteColor);
+    border: 1px solid var(--lightGrey);
+    border-radius: 5px;
+
+    font-family: "Roboto-Regular";
+    font-size: 18px;
+    line-height: 21px;
+
+    color: var(--grey);
+}
+
+.ticket-count-text {
+    font-family: "Roboto-Regular";
+    font-size: 16px;
+}
+
+
+.ticket-block-hover {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    width: 318px;
+    height: 192px;
+    padding-left: 36px;
+    padding-top: 20px;
+
+    border: 1px solid rgba(255, 168, 0, 0.79);
+}
+
+.ticket-block-hover .ticket-count-text {
+    color: var(--lightGrey);
+}
+
+.ticket-block {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    width: 317px;
+    height: 192px;
+    padding-left: 36px;
+    padding-top: 20px;
+}
+
+.type-vagon-header {
+    padding-top: 27px;
+    padding-left: 20px;
+
+    font-family: "Roboto-Bold";
+    font-size: 30px;
+    color: var(--grey);
+}
+
+.type-vagon-select {
+    display: flex;
+    padding-top: 25px;
+}
+
+.type-vagon {
+    width: 25%;
+    margin-bottom: 24px;
+
+    font-family: "Roboto-Regular";
+    font-size: 24px;
+    color: var(--mediumGrey);
+    text-align: center;
+}
+
+.type-vagon p {
+    padding-top: 18px;
+}
+
+.type-vagon-active {
+    color: var(--orangeColor);
+}
+
+.head-line-vagon-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 37px;
+
+    font-family: "Roboto-Regular";
+    font-size: 16px;
+
+    color: var(--grey);
+    background: var(--darckOrange);
+}
+
+.vagon-numbers {
+    padding-left: 33px;
+}
+
+.vagon-numbers span {
+    font-family: "Roboto-Bold";
+    font-size: 30px;
+
+    color: var(--blackColor);
+}
+
+.vagon-numbers .vagon-number-active {
+    color: var(--whiteColor);
+}
+
+.head-line-vagon-options {
+    padding-right: 11px;
+}
+
+.vagon-options {
+    display: flex;
+    align-items: start;
+
+}
+
+.number-vagon-options {
+    width: 190px;
+    height: 161px;
+    padding-top: 30px;
+    padding-left: 37px;
+
+    font-family: "Roboto-Bold";
+    font-size: 72px;
+
+    color: var(--grey);
+    background-color: var(--darckOrange);
+}
+
+.number-vagon-option-inner {
+    margin-top: -8px;
+    padding-left: 5px;
+
+    font-family: "Roboto-Regular";
+    font-size: 24px;
+    color: var(--grey);
+}
+
+.selected-seats {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    padding-left: 85px;
+    padding-top: 33px;
+}
+
+.number-of-seats,
+.header-price-selected-seats {
+    font-family: "Roboto-Regular";
+    font-size: 18px;
+    color: var(--lightGrey);
+}
+
+.number-of-seats span {
+    color: var(--blackColor);
+}
+
+.location-of-seats {
+    font-family: "Roboto-Regular";
+    font-size: 24px;
+    color: var(--blackColor);
+}
+
+.location-of-seats span {
+    font-family: "Roboto-Bold";
+}
+
+.price-selected-seats {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    margin-left: 113px;
+    padding-top: 33px;
+}
+
+.price-selected-seats-inner {
+    font-family: "Roboto-Bold";
+    font-size: 24px;
+    color: var(--blackColor);
+}
+
+.ico-rub-price-selected-seats {
+    width: 14px;
+    height: 17px;
+}
+
+.options-selected-seats {
+    margin-left: 113px;
+    padding-top: 33px;
+
+    font-family: "Roboto-Regular";
+    font-size: 18px;
+    color: var(--lightGrey);
+}
+
+.service-option-selected-seats {
+    display: flex;
+    gap: 8px;
+}
+
+.fpk-header {
+    color: var(--mediumGrey);
+    text-transform: uppercase;
+}
+
+.service-option-select-icons {
+    display: flex;
+    gap: 13px;
+
+    margin-bottom: 58px;
+
+}
+
+.service-option-item {
+    position: relative;
+}
+
+.service-conditoin-pop {
+    position: absolute;
+    width: 130px;
+    height: 34px;
+    left: -40px;
+    top: 38px;
+    padding-top: 7px;
+
+    font-family: "Roboto-Regular";
+    font-size: 16px;
+    line-height: 19px;
+    color: var(--grey);
+    text-align: center;
+
+
+    background: var(--brightGreyText);
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.people-in-this-train {
+    display: flex;
+    align-items: center;
+
+    width: 199px;
+    height: 72px;
+
+    font-family: "Roboto-Regular";
+    font-size: 16px;
+    line-height: 19px;
+    color: var(--grey);
+    text-align: center;
+
+    background: #F3F3F3;
+    border-radius: 5px;
+}
+
+.img-train-vagon {
+    padding-left: 21px;
+    margin-bottom: 81px;
+}
+
+/* Start  Passengers page */
+
+.body-passengers-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+}
+
+/* Strat details trip */
+
+.details-trip-cover {
+    background-color: var(--mediumDarckGrey);
+}
+
+.header-detail-trip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 108px;
+
+    font-family: "Roboto-Medium";
+    font-size: 30px;
+    text-transform: uppercase;
+    color: var(--brightGreyText);
+
+    border-bottom: 1px solid var(--brightGreyText);
+}
+
+.way-to-trip,
+.way-back-trip,
+.passengers-in-trip {
+    padding-left: 28px;
+    padding-top: 22px;
+    padding-right: 27px;
+
+    border-bottom: 1px solid var(--brightGreyText);
+}
+
+.way-here,
+.way-back,
+.way-passengers {
+    display: flex;
+    align-items: center;
+    margin-bottom: 53px;
+}
+
+.way-trip-here-text,
+.passengers-in-trip-text {
+    margin-left: 12px;
+    font-family: "Roboto-Bold";
+    font-size: 30px;
+    color: var(--whiteColor);
+}
+
+.way-trip-here-date {
+    margin-left: 20px;
+
+    font-family: "Roboto-Regular";
+    font-size: 18px;
+    color: var(--whiteColor);
+}
+
+.ico-roll-up-trip {
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.number-train,
+.name-train {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 22px;
+}
+
+.text-train-inner,
+.time-in-way {
+    font-family: "Roboto-Regular";
+    font-size: 18px;
+    color: var(--brightGreyText);
+}
+
+.number-train-inner {
+    font-family: "Roboto-Bold";
+    font-size: 24px;
+    color: var(--whiteColor);
+}
+
+.name-train-inner {
+    font-family: "Roboto-Bold";
+    font-size: 16px;
+    color: var(--whiteColor);
+    text-align: right;
+}
+
+.time-in-way {
+    padding-top: 24px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.all-times-in-way {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+}
+
+.time-start-end {
+    font-family: "Roboto-Bold";
+    font-size: 24px;
+    color: var(--whiteColor);
+}
+
+.time-start-end span {
+    font-family: "Roboto-Regular";
+    font-size: 18px;
+    color: var(--lightGrey);
+
+}
+
+.places-on-the-way {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 53px;
+}
+
+.start-place,
+.finish-place {
+    font-family: "Roboto-Regular";
+    font-size: 18px;
+    color: var(--whiteColor);
+
+}
+
+.start-place span,
+.finish-place span {
+    font-size: 16px;
+    color: var(--lightGrey);
+}
+
+.number-of-passengers {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 46px;
+}
+
+.row-of-passengers,
+.total-price-all-trip {
+    display: flex;
+    justify-content: space-between;
+}
+
+.number-passengers {
+    font-family: "Roboto-Regular";
+    font-size: 18px;
+    color: var(--brightGreyText);
+}
+
+.total-price-all-trip {
+    align-items: center;
+    padding-bottom: 33px;
+    padding-left: 28px;
+    padding-top: 30px;
+    padding-right: 27px;
+}
+
+.total-trice-by-passengers {
+    display: flex;
+
+    font-family: "Roboto-Bold";
+    font-size: 24px;
+    color: var(--whiteColor);
+    text-align: right;
+}
+
+.total-price-text {
+    font-family: "Roboto-Bold";
+    font-size: 30px;
+    color: var(--whiteColor);
+    text-transform: uppercase;
+}
+
+.total-price {
+    font-family: "Roboto-Bold";
+    font-size: 48px;
+    color: var(--orangeColor);
+}
+
+/* End details trip */
+
+/* Start Passenger Card */
+
+.select-passengers-card {
+    width: 960px;
+
+    background: var(--whiteColor);
+    border: 1px solid var(--mediumGrey);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.header-passengers-card {
+    display: flex;
+    align-items: center;
+    height: 107px;
+
+    background: #F9F9F9;
+    border-bottom: 1px dashed var(--lightGrey);
+}
+
+.ico-roll-up-card {
+    padding-left: 23px;
+    cursor: pointer;
+}
+
+.header-text-card-passengers {
+    padding-left: 16px;
+
+    font-family: "Roboto-Regular";
+    font-size: 30px;
+    color: var(--grey)
+}
+
+.close-passengers-card {
+    margin-left: auto;
+    padding-right: 40px;
+
+    font-size: 30px;
+    color: var(--lightGrey);
+
+    cursor: pointer;
+}
+
+.select-type-person {
+    padding-left: 36px;
+    padding-top: 38px;
+    margin-bottom: 45px;
+}
+
+.select-type-person>select {
+    width: 280px;
+    height: 50px;
+
+    font-family: "Roboto-Regular";
+    font-size: 24px;
+    color: var(--grey);
+
+    border: 1px solid var(--lightGrey);
+    border-radius: 5px;
+}
+
+.inputs-personal-data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.inputs-header {
+    margin-bottom: 15px;
+
+    font-family: "Roboto-Regular";
+    font-size: 16px;
+    color: var(--lightGrey);
+}
+
+.input-surname,
+.input-name,
+.input-patronymic {
+    display: flex;
+    align-items: center;
+    width: 280px;
+    height: 50px;
+    padding-left: 15px;
+
+    font-family: "Roboto-Regular";
+    font-size: 24px;
+    color: var(--grey);
+
+    background-color: var(--whiteColor);
+    border: 1px solid var(--lightGrey);
+    border-radius: 5px;
+}
+
+.more-personal-data {
+    padding-left: 36px;
+}
+
+.more-personal-data {
+    display: flex;
+    align-items: end;
+    gap: 35px;
+    margin-bottom: 45px;
+}
+
+.check-gender {
+    display: flex;
+    width: 204px;
+    height: 50px;
+
+    border-radius: 5px;
+    border: 1px solid var(--lightGrey);
+}
+
+.gender-radio {
+    display: none;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+
+    font-family: "Roboto-Black";
+    font-size: 30px;
+    text-transform: uppercase;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.radio-label-right-border {
+    border-right: 1px solid var(--lightGrey);
+}
+
+.gender-radio:checked+.radio-label {
+    background-color: var(--orangeColor);
+}
+
+
+.input-birthday {
+    display: flex;
+    flex-direction: column;
+}
+
+.birthday-field {
+    width: 240px;
+    height: 50px;
+    padding-left: 20px;
+
+    font-family: "Roboto-Regular";
+    font-size: 24px;
+    color: var(--grey);
+
+    border: 1px solid var(--lightGrey);
+    border-radius: 5px;
+}
+
+
+.checkbox-peculiarities {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 31px;
+
+    font-family: "Roboto-Regular";
+    font-size: 18px;
+    color: var(--grey);
+
+    border-bottom: 1px dashed var(--lightGrey);
+}
+
+.checkbox-peculiarities>input {
+    margin-left: 36px;
+    width: 28px;
+    height: 28px;
+
+    background: var(--whiteColor);
+    border: 1px solid var(--lightGrey);
+    border-radius: 5px;
+}
+
+.personal-id-data {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    padding-left: 35px;
+    padding-top: 37px;
+    padding-bottom: 33px;
+    border-bottom: 1px dashed var(--lightGrey);
+}
+
+.personal-id-data input,
+.passport-input {
+    width: 205px;
+    height: 50px;
+    padding-left: 20px;
+
+    font-family: "Roboto-Regular";
+    font-size: 24px;
+    color: var(--grey);
+
+    border: 1px solid var(--lightGrey);
+    border-radius: 5px;
+}
+
+.passport {
+    display: flex;
+    gap: 35px;
+}
+
+
+
+.birth-certificate-select {
+    width: 444px;
+    height: 50px;
+
+    font-family: "Roboto-Regular";
+    font-size: 24px;
+    color: var(--grey);
+
+    border: 1px solid var(--lightGrey);
+    border-radius: 5px;
+}
+
+.input-number-birth-certificate {
+    width: 205px;
+    height: 50px;
+    padding-left: 20px;
+
+    font-family: "Roboto-Regular";
+    font-size: 24px;
+    color: var(--grey);
+
+    border: 1px solid var(--lightGrey);
+    border-radius: 5px;
+}
+
+.error-input {
+    color: var(--errorColor);
+    border: 1px solid var(--errorBorderColor);
+
+}
+
+.warning-error-line {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 119px;
+
+    background: rgba(255, 61, 0, 0.38);
+}
+
+.ico-warning {
+    padding-left: 24px;
+}
+
+.warning-text {
+    font-family: "Roboto-Regular";
+    font-size: 18px;
+    color: var(--grey);
+}
+
+.warning-text span {
+    font-family: "Roboto-Bold";
+}
+
+.next-passenger-line {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    height: 117px;
+
+    padding-right: 31px;
+}
+
+.success-verification-data {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 30px;
+    padding-left: 24px;
+
+    height: 118px;
+    background-color: var(--greenColorSuccess);
+}
+
+.ico-success-data {
+    display: flex;
+    align-items: center;
+
+    font-family: "Roboto-Regular";
+    font-size: 18px;
+    color: var(--whiteColor);
+}
+
+.ico-success {
+    padding-right: 15px;
+}
+
+
+.btn-next-passenger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 303px;
+    height: 52px;
+
+    font-family: "Roboto-Bold";
+    font-size: 24px;
+    color: var(--grey);
+
+    background-color: var(--whiteColor);
+    border: 1px solid var(--grey);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.green-bg {
+    background: var(--greenColorSuccess);
+}
+
+.hidden {
+    display: none;
+}
+
+.add-passengers-card,
+.add-another-passengers {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-left: 26px;
+    height: 97px;
+
+    background-color: var(--whiteColor);
+    border: 1px solid var(--mediumGrey);
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
+
+}
+
+.add-passengers-card-text {
+    font-family: "Roboto-Regular";
+    font-size: 30px;
+    color: var(--grey);
+}
+
+.add-another-passengers {
+    padding-right: 38px;
+    justify-content: space-between;
+}
+
+/* End Passenger card */
+
+.btn-next-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    width: 222px;
+    height: 60px;
+
+    font-family: "Roboto-Bold";
+    font-size: 24px;
+    color: var(--whiteColor);
+    text-transform: uppercase;
+
+    background: var(--lightGrey);
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+}
+
+.active-btn {
+    background-color: var(--orangeColor);
+}
+
+/* End Paassengers page */
+
+/* Start Payment page */
+
+.payment-card {
+    width: 960px;
+
+    background: var(--whiteColor);
+    border: 1px solid var(--mediumGrey);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.payment-header {
+    display: flex;
+    align-items: center;
+    height: 107px;
+    padding-left: 35px;
+
+    font-family: "Roboto-Regular";
+    font-size: 30px;
+    color: var(--grey);
+
+    background: var(--lightGreyBgHeader);
+    border-bottom: 1px dashed var(--mediumGrey);
+}
+
+.inputs-personal-data-payment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    padding-top: 30px;
+    margin-bottom: 54px;
+}
+
+.inputs-header-payment {
+    margin-bottom: 15px;
+
+    font-family: "Roboto-Regular";
+    font-size: 16px;
+    color: var(--grey);
+}
+
+.input-phone-payment {
+    padding-left: 35px;
+    margin-bottom: 38px;
+}
+
+.input-email-payment {
+    padding-left: 35px;
+    padding-bottom: 88px;
+}
+
+
+.input-phone,
+.input-email {
+    width: 360px;
+    height: 50px;
+    padding-left: 15px;
+
+    font-family: "Roboto-Regular";
+    font-size: 24px;
+    color: var(--mediumGrey);
+
+    border-radius: 5px;
+    border: 1px solid var(--lightGrey)
+}
+
+.input-email-payment {
+    border-bottom: 1px dashed var(--mediumGrey);
+}
+
+.payment-method {
+    height: 236px;
+    padding-left: 35px;
+    border-bottom: 1px dashed var(--mediumGrey);
+}
+
+.payment-options {
+    display: flex;
+    align-items: center;
+}
+
+
+.payment-options-inner {
+    width: 25%;
+    font-family: "Roboto-Bold";
+    font-size: 24px;
+    color: var(--grey);
+}
+
+/* Start Chebox settings */
+
+.checkbox-online-pay {
+    display: flex;
+    align-items: center;
+
+    padding-top: 50px;
+    margin-bottom: 30px;
+    font-family: "Roboto-Regular";
+    font-size: 24px;
+    color: var(--lightGrey);
+}
+
+.checkbox-online-pay input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-online-pay label {
+    position: relative;
+    padding-left: 48px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox-online-pay label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--lightGrey);
+    border-radius: 5px;
+    transition: all 0.2s;
+    background-color: transparent;
+}
+
+.checkbox-online-pay input[type="checkbox"]:checked+label::before {
+    background-color: var(--whiteColor);
+    border-color: var(--orangeColor);
+}
+
+.checkbox-online-pay label::after {
+    content: "✓";
+    position: absolute;
+    left: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--orangeColor);
+    font-size: 28px;
+    font-weight: bold;
+    opacity: 0;
+    transition: all 0.2s;
+}
+
+.checkbox-online-pay input[type="checkbox"]:checked+label::after {
+    opacity: 1;
+}
+
+.checked {
+    color: var(--orangeColor);
+}
+
+/*  End chebox settings */
+
+.cash-payment {
+    display: flex;
+    align-items: center;
+    height: 168px;
+    padding-left: 35px;
+}
+
+.by-ticket {
+    display: flex;
+    justify-content: end;
+}
+
+.btn-by-ticket {
+    width: 323px;
+    height: 60px;
+    margin-top: 116px;
+
+    font-family: "Roboto-Bold";
+    font-size: 24px;
+    color: var(--whiteColor);
+    text-align: center;
+    text-transform: uppercase;
+
+    background-color: var(--orangeColor);
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+}
+
+/* End payment page */
+
+/* Start Order confirm page */
+
+.body-order-confirm {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+}
+
+.train-card,
+.passengers-card {
+    width: 959px;
+
+    background: var(--whiteColor);
+    border: 1px solid var(--mediumGrey);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.header-train-card {
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    height: 95px;
+
+    font-family: "Roboto-Regular";
+    font-size: 30px;
+    color: var(--grey);
+
+    border-bottom: 1px solid var(--lightGrey);
+}
+
+.card-ticket {
+    display: flex;
+    background: var(--whiteColor);
+
+}
+
+.btn-change {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 26px;
+    width: 233px;
+    height: 39px;
+
+    font-family: "Roboto-Bold";
+    font-size: 24px;
+    color: var(--grey);
+
+    background-color: var(--whiteColor);
+    border-radius: 5px;
+    border: 1px solid var(--grey);
+    cursor: pointer;
+}
+
+.all-passengers {
+    width: 678px;
+    padding-top: 31px;
+    padding-bottom: 60px;
+}
+
+.body-passengers-card {
+    display: flex;
+}
+
+.passengers-details {
+    display: flex;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+
+    border-bottom: 1px dashed var(--mediumGrey);
+}
+
+.passengers-details:last-child {
+    border: 0;
+}
+
+.ico-passenger {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 17px;
+}
+
+.ico-passengers-text,
+.header-passengers-data {
+    font-family: "Roboto-Regular";
+    font-size: 18px;
+    color: var(--grey);
+}
+
+.passengers-data-text {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding-left: 45px;
+}
+
+.passengers-data-text {
+    font-family: "Roboto-Regular";
+    font-size: 18px;
+    color: var(--lightGrey);
+}
+
+.totalt-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    width: 281px;
+
+    border-left: 1px dashed var(--mediumGrey);
+}
+
+.full-price {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 25px;
+    padding-right: 28px;
+    margin-bottom: 28px;
+}
+
+.text-full-price {
+    font-family: "Roboto-Regular";
+    font-size: 30px;
+    color: var(--grey);
+}
+
+.full-price-inner {
+    font-family: "Roboto-Bold";
+    font-size: 30px;
+    color: var(--grey);
+}
+
+.type-payment {
+    display: flex;
+    height: 146px;
+}
+
+.type-payment-inner {
+    width: 680px;
+    padding-left: 33px;
+    padding-top: 44px;
+
+    font-family: "Roboto-Regular";
+    font-size: 24px;
+    color: var(--grey);
+
+
+}
+
+.change-payment {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    width: 281px;
+    padding-top: auto;
+
+    border-left: 1px solid var(--brightGreyText);
+}
+
+.btn-confirm-order {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 123px;
+    margin-left: auto;
+    width: 323px;
+    height: 60px;
+
+    font-family: "Roboto-Bold";
+    font-size: 24px;
+    color: var(--whiteColor);
+    text-transform: uppercase;
+
+    background-color: var(--orangeColor);
+    border-radius: 5px;
+    border: 0px;
+    cursor: pointer;
+}
+
+/* End OrderConfirm page */
+
+/* Strat Success order page */
+.page-bg-success-order {
+    background-color: var(--brightGreyBg);
+}
+
+.container-success-order {
+    width: 1404px;
+    margin: 0 auto;
+
+}
+
+.main-header-success-order {
+    width: 100%;
+    min-height: 834px;
+
+    background: url("../images/header-success-order-bg.jpg") no-repeat center;
+    background-size: cover;
+}
+
+.header-success-order {
+    padding-top: 351px;
+    font-family: "Roboto-Bold";
+    font-size: 72px;
+    color: var(--whiteColor);
+}
+
+
+.card-success-order {
+    margin-top: -210px;
+    margin-bottom: 175px;
+
+    background-color: var(--whiteColor);
+    border: 1px solid var(--mediumGrey);
+}
+
+.header-card-success-order {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 148px;
+    padding-left: 82px;
+    padding-right: 79px;
+
+    background-color: var(--whiteColor);
+}
+
+.number-order {
+    font-family: "Roboto-Bold";
+    font-size: 36px;
+    color: var(--mediumDarckGrey);
+}
+
+.total-price-succeess-order {
+    display: flex;
+    font-family: "Roboto-Regular";
+    font-size: 36px;
+    color: var(--lightGrey);
+
+    &>span {
+        font-family: "Roboto-Bold";
+        font-size: 36px;
+        color: var(--mediumDarckGrey);
+    }
+}
+
+.tickets-staps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 145px;
+
+    height: 312px;
+
+    background-color: var(--brightGreyBg);
+}
+
+.ticket-stap {
+    width: 155px;
+    text-align: center;
+}
+
+.ico-stap-ticket {
+    margin-bottom: 11px;
+}
+
+.ticket-stap-text {
+    font-family: "Roboto-Regular";
+    font-size: 18px;
+
+    &>span {
+        font-family: "Roboto-Medium";
+    }
+}
+
+.success-order-text {
+    padding-left: 205px;
+}
+.header-success-order-text {
+    padding-top: 95px;
+    margin-bottom: 51px;
+
+    font-family: "Roboto-Bold";
+    font-size: 36px;
+    color: var(--grey);
+}
+
+.body-success-order-text {
+    margin-bottom: 95px;
+
+    font-family: "Roboto-Regular";
+    font-size: 24px;
+    line-height: 28px;
+
+    color: var(--grey);
+}
+
+.ps-success-order-text {
+    margin-bottom: 129px;
+
+    font-family: "Roboto-Bold";
+    font-size: 24px;
+   
+    color: var(--grey);
+}
+ 
+.footer-success-order-card {
+    display: flex;
+    align-items: center;
+    height: 161px;
+    padding-left: 83px;
+    padding-right: 78px;
+
+    background-color: var(--orangeColor);
+}
+
+.rate-service {
+
+    font-family: "Roboto-Regular";
+    font-size: 24px;
+   
+    color: var(--grey);
+}
+
+.rate-starts {
+    display: flex;
+    gap: 19px;
+
+    margin-left: 33px;
+}
+
+.btn-back-to-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 323px;
+    height: 60px;
+    margin-left: auto;
+
+
+    font-family: "Roboto-Bold";
+    font-size: 24px;
+    color: var(--grey);
+    text-transform: uppercase;
+
+    background-color: var(--orangeColor);
+    border-radius: 5px;
+    border: 1px solid var(--mediumDarckGrey);
+    cursor: pointer;
+}
+

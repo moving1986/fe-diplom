@@ -1,0 +1,192 @@
+/* Start body */
+
+.main-order-tickets {
+    display: flex;
+    gap: 83px;
+  }
+  
+  .detail-trip {
+    width: 361px;
+  }
+  
+  .main-tickets {
+    display: flex;
+    flex-direction: column;
+    gap: 47px;
+  }
+  
+  .info-seach-tecket {
+    display: flex;
+  }
+  
+  .found-ticket,
+  .sort-by,
+  .view-by {
+    font-family: "Roboto-Regular";
+    font-size: 18px;
+  
+    color: var(--lightGrey);
+  }
+  
+  .sort-by {
+    margin-left: 363px;
+  }
+  
+  .view-by {
+    margin-left: auto;
+  }
+  
+  .sort-by>span,
+  .view-by>span {
+    color: var(--darckGrey)
+  }
+  
+  .card-select-ticket {
+    display: flex;
+    width: 959px;
+  
+    background: var(--whiteColor);
+    border: 1px solid var(--mediumGrey);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  }
+  
+  .train-name-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 197px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .train-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--mediumGrayBg);
+  }
+  
+  .train-name-header {
+    font-family: "Roboto-Bold";
+    font-size: 24px;
+    text-align: center;
+    color: var(--mediumDarckGrey);
+  }
+  
+  .train-way {
+    display: flex;
+    flex-direction: column;
+    gap: 63px;
+    width: 479px;
+  
+    padding-top: 54px;
+    padding-left: 40px;
+    padding-right: 36px;
+  }
+  
+  .seat-type {}
+  
+  .train-way-inner {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .from-way {}
+  
+  .time-way {
+    font-family: "Roboto-Bold";
+    font-size: 24px;
+  }
+  
+  .city-way {
+    font-family: "Roboto-Regular";
+    font-size: 18px;
+  }
+  
+  .staition-way {
+    font-family: "Roboto-Regular";
+    font-size: 16px;
+    color: var(--lightGrey);
+  }
+  
+  .time-trip-way {
+    font-family: "Roboto-Regular";
+    font-size: 18px;
+    color: var(--mediumGrey);
+  
+    text-align: center;
+  }
+  
+  .trip-arrow {
+    padding-top: 7px;
+  }
+  
+  .seat-type {
+    width: 283px;
+    padding-top: 41px;
+    padding-left: 27px;
+    padding-right: 21px;
+    text-align: right;
+  
+    border-left: 1px dashed var(--brightGreyText);
+  }
+  
+  .seats {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-bottom: 31px;
+    ;
+  }
+  
+  .seat-type-inner {
+    position: relative;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .type-of-seat {
+    width: 74px;
+  
+    font-family: "Roboto-Regular";
+    font-size: 16px;
+    text-align: left;
+  
+    color: var(--mediumDarckGrey);
+  }
+  
+  .how-much-seat {
+    width: 22px;
+    margin-left: 17px;
+  
+    font-family: "Roboto-Medium";
+    font-size: 16px;
+    color: var(--orangeColor);
+  }
+  
+  .price-seat {
+    margin-left: 15px;
+  
+    font-family: "Roboto-Regular";
+    font-size: 16px;
+  
+    color: var(--lightGrey);
+  }
+  
+  .price-seat>span {
+    font-family: "Roboto-Bold";
+    font-size: 24px;
+  
+    color: var(--darckGrey);
+  }
+  
+  .currency {
+    padding-top: 4px;
+  }
+  
+  .seats-options {
+    margin-bottom: 18px;
+  }

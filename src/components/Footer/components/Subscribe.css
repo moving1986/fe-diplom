@@ -1,0 +1,27 @@
+.header-subscribe-form {
+    padding-top: 30px;
+    margin-bottom: 24px;
+  
+    font-family: "Roboto-Regular";
+    font-size: 24px;
+    color: var(--brightGreyText);
+  }
+  
+  .footer-subscribe-input {
+    width: 447px;
+    height: 60px;
+    padding: 17px;
+  
+    font-family: "Roboto-Regular";
+    font-size: 24px;
+    color: var(--brightGreyText);
+  
+    background-color: var(--whiteColor);
+    border-radius: 3px;
+  }
+  
+  .error-message-subscribe {
+    font-size: 24px;
+    color: var(--errorColor);
+
+  }

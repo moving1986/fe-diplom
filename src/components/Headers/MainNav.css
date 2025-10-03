@@ -1,0 +1,17 @@
+.nav-bar-main {
+    height: 94px;
+    background: var(--grey);
+}
+
+.nav-menu {
+    display: flex;
+}
+
+.nav-menu__item {
+    padding-top: 26px;
+    margin-right: 84px;
+
+    font-family: "Roboto-Light";
+    font-size: 30px;
+    color: var(--whiteColor);
+}

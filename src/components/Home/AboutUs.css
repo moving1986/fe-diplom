@@ -1,0 +1,31 @@
+.about-us {
+    margin-bottom: 91px;
+  }
+  
+  .about-us-text {
+    display: flex;
+  }
+  
+  .about-us-text-left__line {
+    width: 8px;
+    background-color: var(--orangeColor);
+  }
+  
+  .about-us-text__inner p {
+    margin-left: 19px;
+  
+    font-family: "Roboto-Regular";
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    color: var(--grey);
+  }
+  
+  .about-us-text__inner>p {
+    padding-bottom: 24px;
+  }
+  
+  .about-us-text__inner>p>span {
+    font-family: "Roboto-Bold";
+  }
+  

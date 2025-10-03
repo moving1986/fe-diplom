@@ -1,0 +1,14 @@
+.main-header-success-order {
+    width: 100%;
+    min-height: 834px;
+
+    background: url("../../../assets/images/header-success-order-bg.jpg") no-repeat center;
+    background-size: cover;
+}
+
+.header-success-order {
+    padding-top: 351px;
+    font-family: "Roboto-Bold";
+    font-size: 72px;
+    color: var(--whiteColor);
+}

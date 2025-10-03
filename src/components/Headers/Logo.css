@@ -1,0 +1,11 @@
+.logo {
+    height: 64px;
+    padding-top: 15px;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.logo-text {
+    font-family: "Roboto-Black";
+    font-size: 36px;
+    color: var(--brightGreyText);
+}
