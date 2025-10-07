@@ -1,4 +1,4 @@
-/* Start body */
+
 
 .main-order-tickets {
     display: flex;
@@ -14,9 +14,7 @@
     flex-direction: column;
     gap: 47px;
   }
-  
- 
-  
+    
   .card-select-ticket {
     display: flex;
     width: 959px;
@@ -60,15 +58,12 @@
     padding-left: 40px;
     padding-right: 36px;
   }
-  
-  .seat-type {}
-  
+   
   .train-way-inner {
     display: flex;
     justify-content: space-between;
   }
   
-  .from-way {}
   
   .time-way {
     font-family: "Roboto-Bold";

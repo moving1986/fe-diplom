@@ -11,7 +11,6 @@ const LastTrips = () => {
     if (error) return <div>Ошибка: {error}</div>;
     if (!data || data.length === 0) return <div>Нет последних поездок</div>;
 
-    console.log(data);    
     return (
         <section className="last-trip">
             <div className="header-last-trip">последние билеты</div>

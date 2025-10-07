@@ -14,24 +14,13 @@ import IcoTimeWay from '../../assets/images/ico-time-way.svg';
 import IcoSeatVagon from '../../assets/images/ico-seat-vagon.svg';
 import IcoPlackartVagon from '../../assets/images/ico-plackart-vagon.svg';
 import IcoLuxVagon from '../../assets/images/ico-lux-vagon.svg';
-import { useSelector } from 'react-redux';
 
-const SelectSeatCard = () => {
+const SelectSeatCard = ( {seatsData} ) => {
 
-   const selectedRoute = useSelector(state => state.trips.selectedRoute);
-
-    if (!selectedRoute) {
-        return (
-            <div>
-                <h2>Маршрут не выбран</h2>
-                <p>Пожалуйста, вернитесь назад и выберите маршрут.</p>
-            </div>
-        );
-    }
-
-    const { departure } = selectedRoute;
-    const id_route = departure._id;
-    console.log(id_route);
+    seatsData.forEach(element => {
+        console.log(element);
+    });
+    
 
     return (   
          <div className="select-seat">

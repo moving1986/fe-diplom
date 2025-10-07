@@ -1,0 +1,51 @@
+
+.brad-crumbs {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 10px;
+}
+
+.first-page,
+.page-brad-crumbs,
+.last-page {
+  padding: 10px 15px;
+  font-family: "Roboto-Bold";
+  font-size: 18px;
+  color: var(--lightGrey);
+  border-radius: 5px;
+  border: 2px solid var(--mediumGrey);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 45px;
+  text-align: center;
+}
+
+.first-page:hover:not(.disabled),
+.last-page:hover:not(.disabled) {
+  color: var(--orangeColor);
+  border: 2px solid var(--orangeColor);
+}
+
+.page-brad-crumbs:hover:not(.brad-crumbs-active) {
+  color: var(--orangeColor);
+  border: 2px solid var(--orangeColor);
+}
+
+.brad-crumbs-active {
+  background-color: var(--orangeColor);
+  color: var(--whiteColor);
+  border: 2px solid var(--orangeColor);
+}
+
+.first-page.disabled,
+.last-page.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.first-page.disabled:hover,
+.last-page.disabled:hover {
+  color: var(--lightGrey);
+  border: 2px solid var(--mediumGrey);
+}

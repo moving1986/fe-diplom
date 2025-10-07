@@ -250,53 +250,6 @@ h3 {
 }
 
 
-
-/* End main-page */
-
-/* Start select-train */
-
-
-
-
-
-
-/* Start Brad crumbs */
-
-.brad-crumbs {
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  gap: 35px;
-}
-
-.first-page,
-.page-brad-crumbs,
-.last-page {
-  padding: 20px 26px 20px 33px;
-
-  font-family: "Roboto-Bold";
-  font-size: 30px;
-  color: var(--lightGrey);
-
-  border-radius: 5px;
-  border: 2px solid var(--mediumGrey);
-  cursor: pointer;
-}
-
-.brad-crumbs-active {
-  background-color: var(--orangeColor);
-  color: var(--whiteColor);
-
-  border: 2px solid var(--orangeColor);
-}
-
-.brad-crumbs-hover {
-  color: var(--orangeColor);
-  border: 2px solid var(--orangeColor);
-}
-
-/* End select-train */
-
 /* Strat page select-seat */
 
 .header-select-seat {
