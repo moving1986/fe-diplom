@@ -1,4 +1,9 @@
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import DatePicker from "react-datepicker";
+import { ru } from 'date-fns/locale';
+import { registerLocale } from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { BASE_URL } from '../../../../api/api';
 import './MainSearchForm.css';
 import Button from '../../../Buttons/Button';
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,6 +11,10 @@ import { useNavigate } from 'react-router-dom';
 import { changeTripsSearchInput, selectTripsSearch } from '../../../../slices/tripsSearch';
 import { validateSearchForm } from '../../../../utils/searchFormValidator';
 import { useCitySuggestions } from '../../../../utils/useCitySuggestions';
+import ImgCalendar from '../../../../assets/images/input-date-bg.svg';
+
+
+registerLocale('ru', ru);
 
 const MainSearchForm = () => {
     const dispatch = useDispatch();
@@ -15,24 +24,25 @@ const MainSearchForm = () => {
     const [formData, setFormData] = useState({
         from_city: '',
         to_city: '',
-        date_start: '',
-        date_end: ''
+        date_start: null,
+        date_end: null
     });
 
     const [errors, setErrors] = useState({});
-    const [touched, setTouched] = useState({});
-
+    
+    // Хуки для автодополнения
     const fromCitySuggestions = useCitySuggestions();
     const toCitySuggestions = useCitySuggestions();
 
+    // Состояния для отображения подсказок
     const [showFromSuggestions, setShowFromSuggestions] = useState(false);
     const [showToSuggestions, setShowToSuggestions] = useState(false);
 
-  
+    // Рефы для обработки кликов вне области
     const fromRef = useRef(null);
     const toRef = useRef(null);
 
- 
+    // Обработчик кликов вне области автодополнения
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (fromRef.current && !fromRef.current.contains(event.target)) {
@@ -49,7 +59,8 @@ const MainSearchForm = () => {
         };
     }, []);
 
-      useEffect(() => {
+    // Debounce для запросов к API
+    useEffect(() => {
         const timer = setTimeout(() => {
             if (formData.from_city.length >= 2) {
                 fromCitySuggestions.fetchCities(formData.from_city);
@@ -79,7 +90,7 @@ const MainSearchForm = () => {
             [field]: value
         }));
 
-      
+        // Сбрасываем ошибку при изменении поля
         if (errors[field]) {
             setErrors(prev => ({
                 ...prev,
@@ -100,20 +111,8 @@ const MainSearchForm = () => {
         setShowToSuggestions(true);
     };
 
-    const handleDateChange = (e, type) => {
-        const value = e.target.value;
-        const field = type === 'start' ? 'date_start' : 'date_end';
-        handleInputChange(field, value);
-    };
-
-    const handleBlur = (field) => {
-        setTouched(prev => ({
-            ...prev,
-            [field]: true
-        }));
-
-        const { errors: newErrors } = validateSearchForm(formData);
-        setErrors(newErrors);
+    const handleDateChange = (date, field) => {
+        handleInputChange(field, date);
     };
 
     const handleSwapCities = () => {
@@ -136,19 +135,39 @@ const MainSearchForm = () => {
     const onFormSubmit = (event) => {
         event.preventDefault();
         
-        const { isValid, errors: validationErrors } = validateSearchForm(formData);
+        // Конвертируем даты в строки для валидации
+        const formDataForValidation = {
+            ...formData,
+            date_start: formData.date_start ? formData.date_start.toISOString().split('T')[0] : '',
+            date_end: formData.date_end ? formData.date_end.toISOString().split('T')[0] : ''
+        };
+        
+        const { isValid, errors: validationErrors } = validateSearchForm(formDataForValidation);
         setErrors(validationErrors);
 
         if (isValid) {
-            dispatch(changeTripsSearchInput({ name: 'from_city', value: formData.from_city }));
-            dispatch(changeTripsSearchInput({ name: 'to_city', value: formData.to_city }));
-            dispatch(changeTripsSearchInput({ name: 'date_start', value: formData.date_start }));
-            dispatch(changeTripsSearchInput({ name: 'date_end', value: formData.date_end }));
+            dispatch(changeTripsSearchInput({ 
+                name: 'from_city', 
+                value: formData.from_city 
+            }));
+            dispatch(changeTripsSearchInput({ 
+                name: 'to_city', 
+                value: formData.to_city 
+            }));
+            dispatch(changeTripsSearchInput({ 
+                name: 'date_start', 
+                value: formData.date_start ? formData.date_start.toISOString().split('T')[0] : '' 
+            }));
+            dispatch(changeTripsSearchInput({ 
+                name: 'date_end', 
+                value: formData.date_end ? formData.date_end.toISOString().split('T')[0] : '' 
+            }));
 
             navigate('/select-train');
         }
     };
 
+ 
     const SuggestionsList = ({ suggestions, isLoading, show, onSelect, inputRef }) => {
         if (!show) return null;
 
@@ -171,6 +190,19 @@ const MainSearchForm = () => {
         );
     };
 
+  
+    const CustomInput = ({ value, onClick, placeholder, error }) => (
+        <div className="date-input-wrapper" onClick={onClick}>
+            <input
+                className={`date-input-custom ${error ? 'error' : ''}`}
+                value={value}
+                placeholder={placeholder}
+                readOnly
+            />
+            <span className="calendar-icon"><img src={ImgCalendar} alt="" /></span>
+        </div>
+    );
+
     return (
         <div className="search-trip">
             <form className="form-search-trip" onSubmit={onFormSubmit}>
@@ -183,7 +215,6 @@ const MainSearchForm = () => {
                             placeholder="Откуда"
                             value={formData.from_city}
                             onChange={handleFromChange}
-                            onBlur={() => handleBlur('from_city')}
                             onFocus={() => setShowFromSuggestions(true)}
                         />
                         <SuggestionsList
@@ -195,13 +226,12 @@ const MainSearchForm = () => {
                         {errors.from_city && <span className="error-message">{errors.from_city}</span>}
                     </div>
                     
-                    <div className="button-container">
-                        <button
-                            type="button"
-                            className="btn-replace-city"
-                            onClick={handleSwapCities}
-                        ></button>
-                    </div>
+                    <button
+                        type="button"
+                        className="btn-replace-city"
+                        onClick={handleSwapCities}
+                    ></button>
+                    
                     <div className="input-with-suggestions" ref={toRef}>
                         <input
                             className={`way-input ${errors.to_city ? 'error' : ''}`}
@@ -209,7 +239,6 @@ const MainSearchForm = () => {
                             placeholder="Куда"
                             value={formData.to_city}
                             onChange={handleToChange}
-                            onBlur={() => handleBlur('to_city')}
                             onFocus={() => setShowToSuggestions(true)}
                         />
                         <SuggestionsList
@@ -225,26 +254,32 @@ const MainSearchForm = () => {
                 <div className="header-search-trip">Дата</div>
                 <div className="search-input-date">
                     <div className="date-input-container">
-                        <input
-                            className={`date-input ${errors.date_start ? 'error' : ''}`}
-                            type="date"
-                            placeholder="дд/мм/гг"
-                            value={formData.date_start}
-                            onChange={(e) => handleDateChange(e, 'start')}
-                            onBlur={() => handleBlur('date_start')}
-                            min={new Date().toISOString().split('T')[0]}
+                        <DatePicker
+                            selected={formData.date_start}
+                            onChange={(date) => handleDateChange(date, 'date_start')}
+                            selectsStart
+                            startDate={formData.date_start}
+                            endDate={formData.date_end}
+                            minDate={new Date()}
+                            dateFormat="dd.MM.yyyy"
+                            locale="ru"
+                            placeholderText="дд.мм.гггг"
+                            customInput={<CustomInput error={errors.date_start} />}
                         />
                         {errors.date_start && <span className="error-message">{errors.date_start}</span>}
                     </div>
                     <div className="date-input-container">
-                        <input
-                            className={`date-input ${errors.date_end ? 'error' : ''}`}
-                            type="date"
-                            placeholder="дд/мм/гг"
-                            value={formData.date_end}
-                            onChange={(e) => handleDateChange(e, 'end')}
-                            onBlur={() => handleBlur('date_end')}
-                            min={formData.date_start || new Date().toISOString().split('T')[0]}
+                        <DatePicker
+                            selected={formData.date_end}
+                            onChange={(date) => handleDateChange(date, 'date_end')}
+                            selectsEnd
+                            startDate={formData.date_start}
+                            endDate={formData.date_end}
+                            minDate={formData.date_start || new Date()}
+                            dateFormat="dd.MM.yyyy"
+                            locale="ru"
+                            placeholderText="дд.мм.гггг"
+                            customInput={<CustomInput error={errors.date_end} />}
                         />
                         {errors.date_end && <span className="error-message">{errors.date_end}</span>}
                     </div>

@@ -100,23 +100,6 @@
     
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
-    display: none;
-}
-
-input[type="date"]::-moz-calendar-picker-indicator {
-    display: none;
-}
-
-input[type="date"]::-ms-expand {
-    display: none;
-}
-
-input[type="date"] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
 
 .search-input-way,
 .search-input-date {
@@ -161,4 +144,89 @@ input[type="date"] {
     padding-top: 92px;
     padding-right: 24px;
     text-align: right;
+}
+
+
+.date-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.date-input-custom {
+    width: 325px;
+    height: 60px;
+    padding: 19px 45px 19px 19px;
+    font-family: "Roboto-Regular";
+    font-size: 18px;
+    color: var(--brightGreyText);
+    background-color: var(--whiteColor);
+    border: 0;
+    border-radius: 3px;
+    background-repeat: no-repeat;
+    background-position: right 15px top 15px;
+    cursor: pointer;
+}
+
+.date-input-custom.error {
+    border: 2px solid #ff4444;
+}
+
+.date-input-custom:focus {
+    outline: 2px solid #007bff;
+    color: var(--grey);
+}
+
+.calendar-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    pointer-events: none;
+}
+
+/* Кастомизация календаря */
+.react-datepicker-wrapper {
+    width: 100%;
+}
+
+.react-datepicker {
+    font-family: "Roboto-Regular";
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.react-datepicker__header {
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+}
+
+.react-datepicker__current-month {
+    font-family: "Roboto-Medium";
+    color: #333;
+}
+
+.react-datepicker__day-name {
+    font-family: "Roboto-Medium";
+    color: #666;
+}
+
+.react-datepicker__day--selected {
+    background-color: #1976d2;
+    color: white;
+}
+
+.react-datepicker__day--keyboard-selected {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.react-datepicker__day--today {
+    font-weight: bold;
+    color: #1976d2;
+}
+
+.react-datepicker__day:hover {
+    background-color: #e3f2fd;
 }
