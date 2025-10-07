@@ -33,7 +33,6 @@ const LastTrips = () => {
                                 <TripOptions 
                                     haveWifi={item.departure.have_wifi}
                                     isExpress={item.departure.is_express}
-
                                 />
                             </div>
                             <div className="price-last-trip">

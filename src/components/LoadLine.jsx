@@ -1,10 +1,8 @@
-
+import './LoadLine.css';
 
 const LoadLine = () => {
-
     return (
-        <div className="loading-line"></div>
+        <div className="load-line"></div>
     )
 }
-
 export default LoadLine;

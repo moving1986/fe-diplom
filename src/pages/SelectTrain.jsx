@@ -8,9 +8,6 @@ import CardSelectTrain from '../components/SelectTrain/CardSelectTrain';
 
 
 const SelectTrain = () => {
-
-
-
     return (
         <>
             <OrderHeader />
@@ -22,21 +19,10 @@ const SelectTrain = () => {
                             <FilterWays />
                             <LastTrips />
                         </aside>
-
                         <section className="main-tickets">
-                            <div className="info-seach-tecket">
-                                <div className="found-ticket">найдено 20 </div>
-                                <div className="sort-by">сортировать по:
-                                    <select name="" id="">
-                                        <option value="time">времени</option>
-                                        <option value="price">стоимости</option>
-                                        <option value="">длительности</option>
-                                    </select>
-                                </div>
-                                <div className="view-by">показывать по: <span>5</span> 10 20</div>
-                            </div>
 
-                        <CardSelectTrain />
+                         
+                            <CardSelectTrain />
 
 
                             <div className="brad-crumbs">

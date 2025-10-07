@@ -1,0 +1,27 @@
+.load-line {
+    height: 8px;
+    background-color: var(--whiteColor);
+    margin-bottom: 144px;
+    position: relative;
+    overflow: hidden;
+}
+
+.load-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: var(--orangeColor);
+    animation: fillLine 2s ease-in-out forwards;
+}
+
+@keyframes fillLine {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}

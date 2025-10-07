@@ -49,24 +49,8 @@
     color: var(--brightGreyText);
   }
   
-  
-  .footer-social-subscribe-header {
-    padding-top: 44px;
-    margin-bottom: 28px;
-  
-    font-family: "Roboto-Medium";
-    font-size: 30px;
-    color: var(--whiteColor);
-  }
-  
-  .footer-social-subscribe {
-    display: flex;
-  }
-  
-  .ico-social:nth-child(n+2) {
-    margin-left: 48px;
-  }
-  
+ 
+
   .footer-end-line {
     height: 96px;
     padding-top: 26px;

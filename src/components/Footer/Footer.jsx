@@ -3,12 +3,9 @@ import IcoFooterContactPhone from "../../assets/images/ico-footer-contact-phone.
 import IcoFooterContactEmail from "../../assets/images/ico-footer-contact-email.svg";
 import IcoFooterContactSkype from "../../assets/images/ico-footer-contact-skype.svg";
 import IcoFooterContactLoc from "../../assets/images/ico-footer-contact-loc.svg";
-import IcoYoutube from "../../assets/images/ico-youtube.svg";
-import IcoIn from "../../assets/images/ico-in.svg";
-import IcoGoogleSoc from "../../assets/images/ico-google-soc.svg";
-import IcoFacebook from "../../assets/images/ico-facebook.svg";
-import Icotwitter from "../../assets/images/ico-twitter.svg";
+
 import Subscribe from './components/Subscribe';
+import SocSubscribe from './components/SocSubscribe';
 
 
 const Footer = () => {
@@ -42,36 +39,7 @@ const Footer = () => {
                     </div>
                     <div className="footer-subscribe">
                         <Subscribe />                            
-                        <div className="footer-social-subscribe-header">
-                            Подписывайтесь на нас
-                        </div>
-                        <div className="footer-social-subscribe">
-                            <div className="ico-social">
-                                <a href="" title="">
-                                    <img src={IcoYoutube} alt="" />
-                                </a>
-                            </div>
-                            <div className="ico-social">
-                                <a href="" title="">
-                                    <img src={IcoIn} alt="" />
-                                </a>
-                            </div>
-                            <div className="ico-social">
-                                <a href="" title="">
-                                    <img src={IcoGoogleSoc} alt="" />
-                                </a>
-                            </div>
-                            <div className="ico-social">
-                                <a href="" title="">
-                                    <img src={IcoFacebook} alt="" />
-                                </a>
-                            </div>
-                            <div className="ico-social">
-                                <a href="" title="">
-                                    <img src={Icotwitter} alt="" />
-                                </a>
-                            </div>
-                        </div>
+                        <SocSubscribe />    
                     </div>
                 </div>
             </div>

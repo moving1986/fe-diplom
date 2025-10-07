@@ -1,0 +1,17 @@
+  .footer-social-subscribe-header {
+    padding-top: 44px;
+    margin-bottom: 28px;
+  
+    font-family: "Roboto-Medium";
+    font-size: 30px;
+    color: var(--whiteColor);
+  }
+  
+  .footer-social-subscribe {
+    display: flex;
+  }
+  
+  .ico-social:nth-child(n+2) {
+    margin-left: 48px;
+  }
+  

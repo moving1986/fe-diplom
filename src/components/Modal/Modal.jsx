@@ -16,6 +16,12 @@ const Modal = ({ modalType, error, onClose, isOpen }) => {
                     title: 'Ошибка подписки',
                     message: error || 'Произошла ошибка при попытке подписаться. Пожалуйста, попробуйте еще раз.',
                 };
+            case 'errorRequest':
+                return {
+                    title: 'Ошибка при попытке запроса',
+                    message: error || 'Произошла ошибка при запросе данных с API.',
+                };
+
             default:
                 return {
                     title: 'Уведомление',

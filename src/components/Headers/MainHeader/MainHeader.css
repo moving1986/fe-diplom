@@ -12,9 +12,3 @@ h1>span {
     font-family: "Roboto-Bold";
 }
 
-.loading-line {
-    height: 8px;
-
-    background-color: var(--orangeColor);
-    margin-bottom: 144px;
-}

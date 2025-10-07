@@ -15,31 +15,7 @@
     gap: 47px;
   }
   
-  .info-seach-tecket {
-    display: flex;
-  }
-  
-  .found-ticket,
-  .sort-by,
-  .view-by {
-    font-family: "Roboto-Regular";
-    font-size: 18px;
-  
-    color: var(--lightGrey);
-  }
-  
-  .sort-by {
-    margin-left: 363px;
-  }
-  
-  .view-by {
-    margin-left: auto;
-  }
-  
-  .sort-by>span,
-  .view-by>span {
-    color: var(--darckGrey)
-  }
+ 
   
   .card-select-ticket {
     display: flex;

@@ -1,0 +1,55 @@
+ .found-ticket, .info-search-ticket {
+    display: flex;
+    align-items: center;
+  }
+  
+.view-option {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.view-by {
+    display: flex;
+    width: auto;
+}
+
+  .found-ticket,
+  .sort-by,
+  .view-by {
+    align-items: center;
+    font-family: "Roboto-Regular";
+    font-size: 18px;
+  
+    color: var(--lightGrey);
+  }
+  
+  .sort-by {
+    margin-left: auto;
+  }
+
+  .view-by {
+    margin-left: 50px;
+  }
+  
+  .sort-by>span,
+  .view-by>span {
+    color: var(--darckGrey)
+  }
+
+
+.sort-by select {
+
+    border: 0;
+
+}   
+.sort-by option {
+    width: 140px;
+    border: 1px solid #E5E5E5;
+    background: #F7F5F9;
+    box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+
+.view-option {
+    color: #928F94;
+}
