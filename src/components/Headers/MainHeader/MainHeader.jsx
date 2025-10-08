@@ -14,7 +14,12 @@ const MainHeader = () => {
                 <div className="header-title">
                     <h1>Вся жизнь -<br /><span>путешествие</span></h1>
                 </div>
-                <MainSearchForm />              
+                <MainSearchForm 
+                    mainContainer='search-trip'
+                    formClass='form-search-trip'
+                    headerSearch='header-search-trip'
+                    formSearchBottn='form-serch-button'
+                />              
             </div>
         </header>
 

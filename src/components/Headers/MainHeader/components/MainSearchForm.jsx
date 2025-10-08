@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import DatePicker from "react-datepicker";
 import { ru } from 'date-fns/locale';
 import { registerLocale } from "react-datepicker";
@@ -16,7 +16,8 @@ import ImgCalendar from '../../../../assets/images/input-date-bg.svg';
 
 registerLocale('ru', ru);
 
-const MainSearchForm = () => {
+const MainSearchForm = ({mainContainer, formClass, headerSearch, inputsBlcokSearch, formSearchBottn}) => {
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const formSearch = useSelector(selectTripsSearch);
@@ -30,19 +31,17 @@ const MainSearchForm = () => {
 
     const [errors, setErrors] = useState({});
     
-    // Хуки для автодополнения
     const fromCitySuggestions = useCitySuggestions();
     const toCitySuggestions = useCitySuggestions();
 
-    // Состояния для отображения подсказок
     const [showFromSuggestions, setShowFromSuggestions] = useState(false);
     const [showToSuggestions, setShowToSuggestions] = useState(false);
 
-    // Рефы для обработки кликов вне области
+    
     const fromRef = useRef(null);
     const toRef = useRef(null);
 
-    // Обработчик кликов вне области автодополнения
+   
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (fromRef.current && !fromRef.current.contains(event.target)) {
@@ -59,7 +58,7 @@ const MainSearchForm = () => {
         };
     }, []);
 
-    // Debounce для запросов к API
+  
     useEffect(() => {
         const timer = setTimeout(() => {
             if (formData.from_city.length >= 2) {
@@ -90,7 +89,7 @@ const MainSearchForm = () => {
             [field]: value
         }));
 
-        // Сбрасываем ошибку при изменении поля
+      
         if (errors[field]) {
             setErrors(prev => ({
                 ...prev,
@@ -135,7 +134,7 @@ const MainSearchForm = () => {
     const onFormSubmit = (event) => {
         event.preventDefault();
         
-        // Конвертируем даты в строки для валидации
+       
         const formDataForValidation = {
             ...formData,
             date_start: formData.date_start ? formData.date_start.toISOString().split('T')[0] : '',
@@ -204,9 +203,11 @@ const MainSearchForm = () => {
     );
 
     return (
-        <div className="search-trip">
-            <form className="form-search-trip" onSubmit={onFormSubmit}>
+        <div className={mainContainer}>
+            <form className={formClass} onSubmit={onFormSubmit}>
+               <div className={inputsBlcokSearch}>
                 <div className="header-search-trip">Направление</div>
+                
                 <div className="search-input-way">
                     <div className="input-with-suggestions" ref={fromRef}>
                         <input
@@ -226,12 +227,10 @@ const MainSearchForm = () => {
                         {errors.from_city && <span className="error-message">{errors.from_city}</span>}
                     </div>
                     
-                    <button
-                        type="button"
-                        className="btn-replace-city"
-                        onClick={handleSwapCities}
-                    ></button>
-                    
+                    <div className="btn-replace-city"
+                            onClick={handleSwapCities}>
+            
+                    </div>
                     <div className="input-with-suggestions" ref={toRef}>
                         <input
                             className={`way-input ${errors.to_city ? 'error' : ''}`}
@@ -249,9 +248,11 @@ const MainSearchForm = () => {
                         />
                         {errors.to_city && <span className="error-message">{errors.to_city}</span>}
                     </div>
+                  </div>  
                 </div>
-                
+                <div className={inputsBlcokSearch}>
                 <div className="header-search-trip">Дата</div>
+                
                 <div className="search-input-date">
                     <div className="date-input-container">
                         <DatePicker
@@ -268,6 +269,7 @@ const MainSearchForm = () => {
                         />
                         {errors.date_start && <span className="error-message">{errors.date_start}</span>}
                     </div>
+                    
                     <div className="date-input-container">
                         <DatePicker
                             selected={formData.date_end}
@@ -283,11 +285,13 @@ const MainSearchForm = () => {
                         />
                         {errors.date_end && <span className="error-message">{errors.date_end}</span>}
                     </div>
-                </div>
-                
-                <div className="form-serch-button">
+                    </div>
+                    <div className={formSearchBottn}>
                     <Button buttonName="search" type="submit" />
                 </div>
+                </div>
+                
+                
             </form>
         </div>
     );

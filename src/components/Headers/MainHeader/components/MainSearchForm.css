@@ -22,8 +22,6 @@
 
 .input-with-suggestions {
     position: relative;
- 
-
 }
 
 .suggestions-list {
@@ -94,11 +92,13 @@
 .btn-replace-city {
     width: 24px;
     height: 24px;
+  
     border: 0;
     background: url('../../../../assets/images/reload-form-way.svg');
     cursor: pointer;
     
 }
+
 
 
 .search-input-way,
@@ -109,14 +109,14 @@
     padding: 21px;
 }
 
-.way-input,
-.date-input {
-    width: 325px;
+.way-input
+{
+    width: 322px;
     height: 60px;
     padding: 19px;
     font-family: "Roboto-Regular";
     font-size: 18px;
-    color: var(--brightGreyText);
+    color: var(--grey);
     background-color: var(--whiteColor);
     border: 0;
     border-radius: 3px;
@@ -153,12 +153,12 @@
 }
 
 .date-input-custom {
-    width: 325px;
+    width: 322px;
     height: 60px;
     padding: 19px 45px 19px 19px;
     font-family: "Roboto-Regular";
     font-size: 18px;
-    color: var(--brightGreyText);
+    color: var(--grey);
     background-color: var(--whiteColor);
     border: 0;
     border-radius: 3px;
@@ -213,20 +213,50 @@
 }
 
 .react-datepicker__day--selected {
-    background-color: #1976d2;
+    background-color: #FFA8004F;
+    border: 2px solid #FFA800;
     color: white;
 }
 
 .react-datepicker__day--keyboard-selected {
     background-color: #e3f2fd;
-    color: #1976d2;
+    color: #292929;
+;
 }
 
 .react-datepicker__day--today {
     font-weight: bold;
-    color: #1976d2;
+    background-color: #FFA8004F;
 }
-
 .react-datepicker__day:hover {
     background-color: #e3f2fd;
+}
+
+/* Order search */
+
+.form-search-ticket-order {
+    display: flex;
+
+    height: 350px;
+    margin-top: 120px;
+    padding-top: 44px;
+     
+    background: rgba(41, 41, 41, 0.69);
+}
+.header-search-order {
+    position: absolute;
+    top:0;
+    left: 0;
+}
+
+.inputs-block-search {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-serch-button-order {
+    padding-top: 47px;
+    padding-right: 24px;
+    text-align: right;
 }

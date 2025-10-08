@@ -1,4 +1,4 @@
-// SelectTrain.jsx
+
 import { Link } from 'react-router-dom';
 import OrderHeader from '../components/Headers/OrderHeader/OrderHeader';
 import StepsLine from '../components/StepsLine';
@@ -26,6 +26,8 @@ const SelectTrain = () => {
     const [sort, setSort] = useState('time');
     const [currentPage, setCurrentPage] = useState(1);
     const [offset, setOffset] = useState(0);
+
+    
 
 
     useEffect(() => {
@@ -78,6 +80,8 @@ const SelectTrain = () => {
 
         fetchRoutes();
     }, [fromCityId, toCityId, limit, sort, offset]);
+
+    console.log(tripsSearchState.date_start);
 
     const handleLimitChange = (newLimit) => {
         setLimit(newLimit);
