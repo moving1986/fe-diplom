@@ -98,6 +98,14 @@ const SelectTrain = () => {
                             price_to: 'price_to',
                             have_wifi: 'have_wifi',
                             have_express: 'have_express',
+                            start_departure_hour_from: 'start_departure_hour_from',
+                            start_departure_hour_to: 'start_departure_hour_from',
+                            start_arrival_hour_from: 'start_departure_hour_from',
+                            start_arrival_hour_to: 'start_arrival_hour_to',
+                            end_departure_hour_from: 'end_departure_hour_from',
+                            end_departure_hour_to: 'end_departure_hour_to',
+                            end_arrival_hour_from: 'end_arrival_hour_from',
+                            end_arrival_hour_to: 'end_arrival_hour_to',
                         },
                         state: tripsSearchState
                     });
@@ -139,7 +147,11 @@ const SelectTrain = () => {
         tripsSearchState.have_third_class,
         tripsSearchState.have_fourth_class,
         tripsSearchState.price_from,
-        tripsSearchState.price_to
+        tripsSearchState.price_to,
+        tripsSearchState.start_departure_hour_from,
+        tripsSearchState.start_departure_hour_to,
+        tripsSearchState.start_arrival_hour_from,
+        tripsSearchState.start_arrival_hour_to,
     ]);
 
 

@@ -35,14 +35,20 @@ const PriceFilter = () => {
         const minPercent = ((minVal - minPrice) / (maxPrice - minPrice)) * 100;
         const maxPercent = ((maxVal - minPrice) / (maxPrice - minPrice)) * 100;
         
+        // Ограничиваем значения чтобы не выходили за границы
+        const left = Math.max(0, minPercent);
+        const width = Math.min(100 - left, maxPercent - minPercent);
+        
         return {
-            left: `${minPercent}%`,
-            width: `${maxPercent - minPercent}%`
+            left: `${left}%`,
+            width: `${width}%`
         };
     };
 
     const getValuePosition = (value) => {
-        return ((value - minPrice) / (maxPrice - minPrice)) * 100;
+        const position = ((value - minPrice) / (maxPrice - minPrice)) * 100;
+        // Ограничиваем позицию значений чтобы не выходили за границы
+        return Math.max(0, Math.min(100, position));
     };
 
     const trackStyle = getTrackStyle();
@@ -76,7 +82,7 @@ const PriceFilter = () => {
             <div className="price-inputs">
                 <div className="price-input">
                     <div className="price-label">от</div>
-                  </div>
+                </div>
                 <div className="price-input">
                     <div className="price-label">до</div>
                 </div>
@@ -107,7 +113,6 @@ const PriceFilter = () => {
                     />
                 </div>
 
-              
                 <div className="slider-values">
                     <div 
                         className="slider-value" 
@@ -136,8 +141,6 @@ const PriceFilter = () => {
                     </div>
                 </div>
             </div>
-
-  
         </div>
     );
 }
