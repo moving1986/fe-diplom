@@ -71,3 +71,14 @@
     background: url('../assets/images/load-line-arrow-hover.svg') no-repeat right;
     background-color: var(--orangeColor);
 }
+
+
+.last-step-active {
+    background-color: var(--orangeColor) !important;
+}
+
+
+.steps-line.last-step-active .steps-line-item {
+    background-color: var(--orangeColor) !important;
+    background: url('../assets/images/load-line-arrow-hover.svg') no-repeat right !important;
+}

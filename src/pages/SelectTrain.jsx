@@ -95,7 +95,9 @@ const SelectTrain = () => {
                             have_third_class: 'have_third_class',
                             have_fourth_class: 'have_fourth_class',
                             price_from: 'price_from',
-                            price_to: 'price_to'
+                            price_to: 'price_to',
+                            have_wifi: 'have_wifi',
+                            have_express: 'have_express',
                         },
                         state: tripsSearchState
                     });
@@ -128,7 +130,8 @@ const SelectTrain = () => {
         fromCityId, toCityId, limit, sort, offset,
         tripsSearchState.date_start_arrival,
         tripsSearchState.date_end_arrival,
-
+        tripsSearchState.have_wifi,
+        tripsSearchState.have_express,
         tripsSearchState.date_start_departure,
         tripsSearchState.date_end_departure,
         tripsSearchState.have_first_class,
