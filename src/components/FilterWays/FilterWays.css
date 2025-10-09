@@ -5,39 +5,6 @@
     border: 1px soloid var(--brightGreyText);
   }
   
-  .aside-dates {
-    padding-left: 28px;
-    padding-top: 48px;
-  
-    border-bottom: 1px solid var(--brightGreyText);
-  }
-  
-  .aside-header {
-    margin-bottom: 7px;
-  
-    font-family: "Roboto-Regular";
-    font-size: 30px;
-  
-    color: var(--whiteColor)
-  }
-  
-  
-  .aside-date-input {
-    width: 295px;
-    height: 43px;
-    padding-left: 8px;
-    margin-bottom: 33px;
-  
-    font-family: "Roboto-Regular";
-    font-size: 18px;
-    color: var(--grey);
-  
-    background: url('../assets/images/ico-date-aside.svg') no-repeat;
-    background-position: right 15px top 10px;
-    background-color: var(--whiteColor);
-    border: 0;
-    border-radius: 3px;
-  }
   
   .select-panel {
     display: flex;

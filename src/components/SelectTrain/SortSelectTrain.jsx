@@ -1,5 +1,6 @@
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+
 import './SortSelectTrain.css';
 
 const SortSelectTrain = ({ 
@@ -9,6 +10,8 @@ const SortSelectTrain = ({
     defaultSort = 'time',
     defaultLimit = 5
 }) => {
+
+
     const [sort, setSort] = useState(defaultSort);
     const [limit, setLimit] = useState(defaultLimit);
 

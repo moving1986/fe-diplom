@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import OrderHeader from '../components/Headers/OrderHeader/OrderHeader';
 import StepsLine from '../components/StepsLine';
-import FilterWays from '../components/FilterWays';
+import FilterWays from '../components/FilterWays/FilterWays';
 import LastTrips from '../components/LastTrips';
 import Footer from '../components/Footer/Footer';
 
@@ -32,7 +32,7 @@ const SelectSeat = () => {
     const [have_air_conditioning, setHaveAirConditioning] = useState(false);
     const [have_express, setHaveExpress] = useState(false);
 
-    // Получаем данные безопасно
+    
     const id_route = selectedRoute?.departure?._id;
     const departure = selectedRoute?.departure;
 

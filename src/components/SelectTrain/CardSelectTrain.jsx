@@ -1,6 +1,5 @@
-// CardSelectTrain.jsx (упрощенная версия)
 import './CardSelectTrain.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import IcoTrain from '../../assets/images/ico-train.svg';
 import RightTripArrow from '../../assets/images/right-trip-arrow.svg';
@@ -11,6 +10,8 @@ import { getUppercaseFirstLetter } from '../../utils/utils';
 import { setSelectedRoute } from '../../slices/tripSlice';
 import { formatTime } from '../../utils/utils';
 import { formatDuration } from '../../utils/utils';
+import { formatPrice } from '../../utils/utils';
+import { getMinPriceForClass } from '../../utils/utils';
 import SortSelectTrain from '../SelectTrain/SortSelectTrain';
 
 const CardSelectTrain = ({
@@ -24,32 +25,15 @@ const CardSelectTrain = ({
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
+    const data = useSelector(state => state.tripsSearch);
+    
+
     const handleBtnClick = (route) => {
         dispatch(setSelectedRoute(route));
         navigate('/select-seat');
     };
 
-    const formatPrice = (price) => {
-        return price?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') || '—';
-    };
-
-    const getMinPriceForClass = (priceInfo, className) => {
-        if (!priceInfo || !priceInfo[className]) return null;
-
-        const classPrices = priceInfo[className];
-
-        if (classPrices.bottom_price) return classPrices.bottom_price;
-        if (classPrices.price) return classPrices.price;
-        if (classPrices.top_price) return classPrices.top_price;
-        if (classPrices.side_price) return classPrices.side_price;
-
-        return null;
-    };
-
-    if (!Array.isArray(routesData) || routesData.length === 0) {
-        return <div>Нет доступных маршрутов</div>;
-    }
-
+   
     return (
         <>
             <SortSelectTrain
@@ -59,7 +43,7 @@ const CardSelectTrain = ({
                 defaultLimit={limit}
                 defaultSort={sort}
             />
-            {routesData.map((route, index) => (
+            {data.items.map((route, index) => (
                 <div key={route.departure?._id || index} className="card-select-ticket">
                     <div className="train-name">
                         <div className="train-name-content">

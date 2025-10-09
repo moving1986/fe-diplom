@@ -1,31 +1,10 @@
-import "./FilterWays.css";
-import IcoCupe from "../assets/images/ico-cupe.svg";
-import IcoPlackart from "../assets/images/ico-plackart.svg";
-import IcoSeat from "../assets/images/ico-seat.svg";
-import IcoLux from "../assets/images/ico-lux.svg"
-import IcoWifi from "../assets/images/ico-wifi.svg";
-import IcoExpress from "../assets/images/ico-express.svg";
-import IcoRightArrowAside from "../assets/images/ico-right-arrow-aside.svg";
-import IcoMoreAside from "../assets/images/ico-more-aside.svg";
-import IcoLeftArrowAside from "../assets/images/ico-left-arrow-aside.svg";
-import { useState } from "react";
+import './VagonOpionsFilter.css'
 
-
-const FilterWays = () => {
-
-
+const VagonOpionsFilter = () => {
 
 
     return (
-        <div className="settings-panel">
-            <div className="aside-dates">
-                <div className="aside-header">Дата поездки</div>
-                <input className="aside-date-input" type="date" />
-                <div className="aside-header">Дата возвращения</div>
-                <input className="aside-date-input" type="date" />
-            </div>
-
-            <section className="vagon-type">
+              <section className="vagon-type">
                 <div className="select-panel">
                     <div className="select-panel-row">
                         <div className="ico-type"><img src={IcoCupe} alt="" /></div>
@@ -88,37 +67,8 @@ const FilterWays = () => {
                         </div>
                     </div>
                 </div>
-
             </section>
-
-            <div className="price-range">
-                <div className="aside-header">
-                    Стоимость
-                </div>
-
-                <div className="slider-price-container">
-                    <div className="slider-track"></div>
-                    <input type="range" className="price-range" min="1920" max="7000" value="4500" step="100" readOnly/>
-                </div>
-                <br />
-            </div>
-
-
-
-            <div className="aside-ways">
-                <div className="ico-way"><img src={IcoRightArrowAside} alt="" /></div>
-                <div className="text-aside-ways">Туда</div>
-                <div className="ico-more-aside-ways"><img src={IcoMoreAside} alt="" /></div>
-            </div>
-
-            <div className="aside-ways">
-                <div className="ico-way"><img src={IcoLeftArrowAside} alt="" /></div>
-                <div className="text-aside-ways">Обратно</div>
-                <div className="ico-more-aside-ways"><img src={IcoMoreAside} alt="" /></div>
-            </div>
-        </div>
-
-    );
+    )
 }
 
-export default FilterWays;
+export default VagonOpionsFilter;
