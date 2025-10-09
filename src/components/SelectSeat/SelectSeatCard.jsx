@@ -15,199 +15,238 @@ import IcoSeatVagon from '../../assets/images/ico-seat-vagon.svg';
 import IcoPlackartVagon from '../../assets/images/ico-plackart-vagon.svg';
 import IcoLuxVagon from '../../assets/images/ico-lux-vagon.svg';
 
-const SelectSeatCard = ( {seatsData} ) => {
+const SelectSeatCard = ({ 
+  seatsData, 
+  loading, 
+  error, 
+  departure,
+ }) => {
+ 
+    if (loading) {
+        return (
+            <div className="loading-container">
+                <div>Загрузка данных о местах...</div>
+            </div>
+        );
+    }
 
-    seatsData.forEach(element => {
-        console.log(element);
-    });
+
+    if (error) {
+        return (
+            <div className="error-container">
+                <div>Ошибка при загрузке данных: {error}</div>
+                <button onClick={() => window.location.reload()} className="btn-retry">
+                    Попробовать снова
+                </button>
+            </div>
+        );
+    }
+
+
+    if (!seatsData || seatsData.length === 0) {
+        return (
+            <div className="no-data-container">
+                <div>Нет доступных мест для выбранного маршрута</div>
+            </div>
+        );
+    }
     
-
     return (   
-         <div className="select-seat">
-            <div className="select-dif-train">
-                <img src={IcoSelectDifTrain} alt="" />
-                <Link to="/select-train" title="Выбор поезда"><button className="btn-dif-train active-btn">Выбрать другой поезд</button></Link>
-            </div>
-
-
-            <div className="details-train-way">
-                <div className="details-train-number">
-                    <div className="ico-details-train">
-                        <img src={IcoDetailsTrain} alt="" />
+        <>
+            {seatsData.map((seat, index) => (
+                <div key={seat._id || index} className="select-seat">
+                    <div className="select-dif-train">
+                        <img src={IcoSelectDifTrain} alt="Иконка выбора поезда" />
+                        <Link to="/select-train" title="Выбор поезда">
+                            <button className="btn-dif-train active-btn">Выбрать другой поезд</button>
+                        </Link>
                     </div>
-                    <div className="train-way-number">
-                        <div className="details-train-number">116С</div>
-                        <div className="detail-train-way">
-                            <span>Адлер &rarr;</span><br />
-                            Москва &rarr;<br />
-                            Санкт-Петербург
+
+                    <div className="details-train-way">
+                        <div className="details-train-number">
+                            <div className="ico-details-train">
+                                <img src={IcoDetailsTrain} alt="Иконка поезда" />
+                            </div>
+                            <div className="train-way-number">
+                                <div className="details-train-number">
+                                    {departure?.train?.name || seat.train?.name || '116С'}
+                                </div>
+                                <div className="detail-train-way">
+                                    <span>{departure?.from?.city?.name || 'Адлер'} &rarr;</span><br />
+                                    {departure?.to?.city?.name || 'Москва'}
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <div className="details-way">
-                    <div className="details-time-way">
-                        <div className="details-time">
-                            00:10
+                        <div className="details-way">
+                            <div className="details-time-way">
+                                <div className="details-time">
+                                    {departure?.from?.datetime ? 
+                                        new Date(departure.from.datetime).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) 
+                                        : '00:10'}
+                                </div>
+                                <div className="details-city-way">
+                                    {departure?.from?.city?.name || 'Москва'}<br />
+                                    <span>{departure?.from?.railway_station_name || 'Курский вокзал'}</span>
+                                </div>
+                            </div>
+                            <div className="ico-arrow-details-way">
+                                <img src={RightTripArrow} alt="Стрелка направления" />
+                            </div>
+                            <div className="details-time-way">
+                                <div className="details-time">
+                                    {departure?.to?.datetime ? 
+                                        new Date(departure.to.datetime).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) 
+                                        : '00:10'}
+                                </div>
+                                <div className="details-city-way">
+                                    {departure?.to?.city?.name || 'Москва'}<br />
+                                    <span>{departure?.to?.railway_station_name || 'Курский вокзал'}</span>
+                                </div>
+                            </div>
                         </div>
-                        <div className="details-city-way">
-                            Москва<br />
-                            <span>Курский вокзал</span>
-                        </div>
-                    </div>
-                    <div className="ico-arrow-details-way">
-                        <img src={RightTripArrow} alt="" />
-                    </div>
-                    <div className="details-time-way">
-                        <div className="details-time">
-                            00:10
-                        </div>
-                        <div className="details-city-way">
-                            Москва<br />
-                            <span>Курский вокзал</span>
-                        </div>
-                    </div>
-                </div>
 
-                <div className="details-travel-time-way">
-                    <div>
-                        <img src={IcoTimeWay} alt="" />
-                    </div>
-                    <div className="details-travel-time">
-                        9 часов<br />
-                        42 минуты
-                    </div>
-                </div>
-            </div>
-
-            <div className="header-count-tickets">
-                Количество билетов
-            </div>
-
-            <div className="count-tickets">
-                <div className="ticket-block-active">
-                    <div className="ticket-count-inner">
-                        Взрослых — 2
-                    </div>
-                    <div className="ticket-count-text">
-                        Можно добавить еще<br /> 3 пассажиров
-                    </div>
-                </div>
-                <div className="ticket-block-hover">
-                    <div className="ticket-count-inner">
-                        Детских — 1
-                    </div>
-                    <div className="ticket-count-text">
-                        Можно добавить еще 3 детей до 10 лет.Свое место в вагоне, как у взрослых, но дешевле
-                        в среднем на 50-65%
-                    </div>
-                </div>
-                <div className="ticket-block">
-                    <div className="ticket-count-inner">
-                        Детских «без места» — 0
-                    </div>
-                </div>
-            </div>
-
-            <div className="type-vagon-header">
-                Тип вагона
-            </div>
-
-            <div className="type-vagon-select">
-                <div className="type-vagon">
-                    <img src={IcoSeatVagon} alt="" />
-                    <p>Сидячий</p>
-                </div>
-                <div className="type-vagon">
-                    <img src={IcoPlackartVagon} alt="" />
-                    <p>Плацкарт</p>
-                </div>
-                <div className="type-vagon type-vagon-active">
-                    <img src={IcoCupeVagonActive} alt="" />
-                    <p>Купе</p>
-                </div>
-                <div className="type-vagon">
-                    <img src={IcoLuxVagon} alt="" />
-                    <p>Люкс</p>
-                </div>
-            </div>
-
-            <div className="head-line-vagon-options">
-                <div className="vagon-numbers">
-                    Вагоны <span className="vagon-number-active">07</span><span> 09</span>
-                </div>
-                <div className="live-vagon-options-inner">
-                    Нумерация вагонов начинается с головы поезда
-                </div>
-            </div>
-
-            <div className="vagon-options">
-                <div className="number-vagon-options">
-                    <div>07</div>
-                    <div className="number-vagon-option-inner">вагон</div>
-                </div>
-
-                <div className="selected-seats">
-                    <div className="number-of-seats">
-                        Места <span>11</span>
-                    </div>
-                    <div className="location-of-seats">
-                        Верхние <span>3</span>
-                    </div>
-                    <div className="location-of-seats">
-                        Нижние <span>8</span>
-                    </div>
-                </div>
-
-                <div className="price-selected-seats">
-                    <div className="header-price-selected-seats">
-                        Стоимость
-                    </div>
-                    <div className="price-selected-seats-inner">
-                        2 920 <img className="ico-rub-price-selected-seats" src={IcoRub} alt="" />
-                    </div>
-                    <div className="price-selected-seats-inner">
-                        3 530 <img className="ico-rub-price-selected-seats" src={IcoRub} alt="" />
-                    </div>
-
-                </div>
-
-                <div className="options-selected-seats">
-                    <div className="service-option-selected-seats">
-                        <div className="service-header">
-                            Обслуживание
-                        </div>
-                        <div className="fpk-header">
-                            фпк
+                        <div className="details-travel-time-way">
+                            <div>
+                                <img src={IcoTimeWay} alt="Иконка времени" />
+                            </div>
+                            <div className="details-travel-time">
+                                {departure?.duration || '9 часов 42 минуты'}
+                            </div>
                         </div>
                     </div>
 
+                    <div className="header-count-tickets">
+                        Количество билетов
+                    </div>
 
-                    <div className="service-option-select-icons">
-                        <div className="service-option-item"><img src={IcoConditionerOption} alt="" />
-                            <div className="service-conditoin-pop">кондиционер</div>
+                    <div className="count-tickets">
+                        <div className="ticket-block-active">
+                            <div className="ticket-count-inner">
+                                Взрослых — 2
+                            </div>
+                            <div className="ticket-count-text">
+                                Можно добавить еще<br /> 3 пассажиров
+                            </div>
                         </div>
-                        <div className="service-option-item">
-                            <img src={IcoWifiOption} alt="" />
+                        <div className="ticket-block-hover">
+                            <div className="ticket-count-inner">
+                                Детских — 1
+                            </div>
+                            <div className="ticket-count-text">
+                                Можно добавить еще 3 детей до 10 лет. Свое место в вагоне, как у взрослых, но дешевле
+                                в среднем на 50-65%
+                            </div>
                         </div>
-                        <div className="service-option-item">
-                            <img src={IcoUnderwearOptionActive} alt="" />
-                        </div>
-                        <div className="service-option-item">
-                            <img src={IcoCupOptionAction} alt="" />
+                        <div className="ticket-block">
+                            <div className="ticket-count-inner">
+                                Детских «без места» — 0
+                            </div>
                         </div>
                     </div>
-                    <div className="people-in-this-train">
-                        11 человек выбирают места в этом поезде
+
+                    <div className="type-vagon-header">
+                        Тип вагона
                     </div>
+
+                    <div className="type-vagon-select">
+                        <div className="type-vagon">
+                            <img src={IcoSeatVagon} alt="Сидячий вагон" />
+                            <p>Сидячий</p>
+                        </div>
+                        <div className="type-vagon">
+                            <img src={IcoPlackartVagon} alt="Плацкарт вагон" />
+                            <p>Плацкарт</p>
+                        </div>
+                        <div className="type-vagon type-vagon-active">
+                            <img src={IcoCupeVagonActive} alt="Купе вагон" />
+                            <p>Купе</p>
+                        </div>
+                        <div className="type-vagon">
+                            <img src={IcoLuxVagon} alt="Люкс вагон" />
+                            <p>Люкс</p>
+                        </div>
+                    </div>
+
+                    <div className="head-line-vagon-options">
+                        <div className="vagon-numbers">
+                            Вагоны <span className="vagon-number-active">07</span><span> 09</span>
+                        </div>
+                        <div className="live-vagon-options-inner">
+                            Нумерация вагонов начинается с головы поезда
+                        </div>
+                    </div>
+
+                    <div className="vagon-options">
+                        <div className="number-vagon-options">
+                            <div>07</div>
+                            <div className="number-vagon-option-inner">вагон</div>
+                        </div>
+
+                        <div className="selected-seats">
+                            <div className="number-of-seats">
+                                Места <span>11</span>
+                            </div>
+                            <div className="location-of-seats">
+                                Верхние <span>3</span>
+                            </div>
+                            <div className="location-of-seats">
+                                Нижние <span>8</span>
+                            </div>
+                        </div>
+
+                        <div className="price-selected-seats">
+                            <div className="header-price-selected-seats">
+                                Стоимость
+                            </div>
+                            <div className="price-selected-seats-inner">
+                                2 920 <img className="ico-rub-price-selected-seats" src={IcoRub} alt="Рубль" />
+                            </div>
+                            <div className="price-selected-seats-inner">
+                                3 530 <img className="ico-rub-price-selected-seats" src={IcoRub} alt="Рубль" />
+                            </div>
+                        </div>
+
+                        <div className="options-selected-seats">
+                            <div className="service-option-selected-seats">
+                                <div className="service-header">
+                                    Обслуживание
+                                </div>
+                                <div className="fpk-header">
+                                    фпк
+                                </div>
+                            </div>
+
+                            <div className="service-option-select-icons">
+                                <div className="service-option-item">
+                                    <img src={IcoConditionerOption} alt="Кондиционер" />
+                                    <div className="service-conditoin-pop">кондиционер</div>
+                                </div>
+                                <div className="service-option-item">
+                                    <img src={IcoWifiOption} alt="Wi-Fi" />
+                                </div>
+                                <div className="service-option-item">
+                                    <img src={IcoUnderwearOptionActive} alt="Белье" />
+                                </div>
+                                <div className="service-option-item">
+                                    <img src={IcoCupOptionAction} alt="Питание" />
+                                </div>
+                            </div>
+                            <div className="people-in-this-train">
+                                11 человек выбирают места в этом поезде
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="img-train-vagon">
+                        <img src={ImgTrainVagon} alt="Схема вагона" />
+                    </div>
+
+                  
                 </div>
-            </div>
-            <div className="img-train-vagon">
-                <img src={ImgTrainVagon} alt="" />
-            </div>
-        </div>
-                           
-    )
+            ))}
+        </>     
+    );
 }
 
 export default SelectSeatCard;

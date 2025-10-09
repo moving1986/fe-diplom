@@ -17,6 +17,7 @@ import SelectSeatCard from '../components/SelectSeat/SelectSeatCard';
 import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { BASE_URL } from '../api/api';
+import SelectedSeatCard from '../components/SelectSeat/SelectedSeatCard';
 
 const SelectSeat = () => {
     const selectedRoute = useSelector(state => state.trips.selectedRoute);
@@ -36,16 +37,18 @@ const SelectSeat = () => {
     const id_route = selectedRoute?.departure?._id;
     const departure = selectedRoute?.departure;
 
-    console.log(id_route);
-
     useEffect(() => {
         const fetchSeats = async () => {
-            if (!id_route) return;
+            if (!id_route) {
+                console.log('ID маршрута не найден');
+                setLoading(false);
+                return;
+            }
 
             try {
                 setLoading(true);
+                setError(null);
                 
-                // Создаем параметры запроса из состояний фильтров
                 const params = new URLSearchParams();
                 if (have_first_class) params.append('have_first_class', 'true');
                 if (have_second_class) params.append('have_second_class', 'true');
@@ -56,6 +59,7 @@ const SelectSeat = () => {
                 if (have_express) params.append('have_express', 'true');
 
                 const url = `${BASE_URL}/routes/${id_route}/seats${params.toString() ? `?${params.toString()}` : ''}`;
+                console.log('Запрос к URL:', url);
                 
                 const seatsResponse = await fetch(url);
 
@@ -64,12 +68,15 @@ const SelectSeat = () => {
                 }
 
                 const responseData = await seatsResponse.json();
-                setSeatsData(responseData.items || responseData);
-                setLoading(false);
+                console.log('Полученные данные:', responseData);
+                
+                setSeatsData(responseData.items || responseData || []);
             } catch (err) {
+                console.error('Ошибка при загрузке мест:', err);
                 setError(err.message);
-                setLoading(false);
                 setSeatsData([]);
+            } finally {
+                setLoading(false);
             }
         };
 
@@ -85,7 +92,7 @@ const SelectSeat = () => {
         have_express
     ]);
 
-    // Условный рендеринг после ВСЕХ хуков
+    
     if (!selectedRoute) {
         return (
             <div>
@@ -94,8 +101,6 @@ const SelectSeat = () => {
             </div>
         );
     }
-
-    console.log(seatsData);
 
     return (
         <>
@@ -116,6 +121,7 @@ const SelectSeat = () => {
                                     seatsData={seatsData} 
                                     loading={loading} 
                                     error={error}
+                                    departure={departure}
                                     filters={{
                                         have_first_class,
                                         have_second_class,
@@ -136,119 +142,8 @@ const SelectSeat = () => {
                                     }}
                                 />
 
-                                <div className="select-seat">
-                                    <div className="select-dif-train-right">
-                                        <img src={IcoSelectDifTrainRight} alt="" />
-                                        <Link to="/select-train" title="Выбор поезда">
-                                            <button className="btn-dif-train active-btn">Выбрать другой поезд</button>
-                                        </Link>
-                                    </div>
-
-                                    <div className="details-train-way">
-                                        <div className="details-train-number">
-                                            <div className="ico-details-train">
-                                                <img src={IcoDetailsTrain} alt="" />
-                                            </div>
-                                            <div className="train-way-number">
-                                                {/* Используем реальные данные из API */}
-                                                <div className="details-train-number">
-                                                    {departure?.train?.name || 'Н/Д'}
-                                                </div>
-                                                <div className="detail-train-way">
-                                                    <span>{departure?.from?.city?.name} &rarr;</span><br />
-                                                    {departure?.to?.city?.name}
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="details-way">
-                                            <div className="details-time-way">
-                                                <div className="details-time">
-                                                    {departure?.from?.datetime ? 
-                                                        new Date(departure.from.datetime).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) 
-                                                        : '00:00'}
-                                                </div>
-                                                <div className="details-city-way">
-                                                    {departure?.from?.city?.name}<br />
-                                                    <span>{departure?.from?.railway_station_name}</span>
-                                                </div>
-                                            </div>
-                                            <div className="ico-arrow-details-way">
-                                                <img src={RightTripArrow} alt="" />
-                                            </div>
-                                            <div className="details-time-way">
-                                                <div className="details-time">
-                                                    {departure?.to?.datetime ? 
-                                                        new Date(departure.to.datetime).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) 
-                                                        : '00:00'}
-                                                </div>
-                                                <div className="details-city-way">
-                                                    {departure?.to?.city?.name}<br />
-                                                    <span>{departure?.to?.railway_station_name}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="details-travel-time-way">
-                                            <div>
-                                                <img src={IcoTimeWay} alt="" />
-                                            </div>
-                                            <div className="details-travel-time">
-                                                {/* Рассчитываем или используем время в пути из API */}
-                                                {departure?.duration || 'Время в пути'}
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="header-count-tickets">
-                                        Количество билетов
-                                    </div>
-
-                                    <div className="count-tickets">
-                                        <div className="ticket-block-active">
-                                            <div className="ticket-count-inner">
-                                                Взрослых — 2
-                                            </div>
-                                            <div className="ticket-count-text">
-                                                Можно добавить еще<br /> 3 пассажиров
-                                            </div>
-                                        </div>
-                                        <div className="ticket-block">
-                                            <div className="ticket-count-inner">
-                                                Детских — 0
-                                            </div>
-                                            <div className="ticket-count-text"></div>
-                                        </div>
-                                        <div className="ticket-block">
-                                            <div className="ticket-count-inner">
-                                                Детских «без места» — 0
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="type-vagon-header">
-                                        Тип вагона
-                                    </div>
-
-                                    <div className="type-vagon-select">
-                                        <div className="type-vagon">
-                                            <img src={IcoSeatVagon} alt="" />
-                                            <p>Сидячий</p>
-                                        </div>
-                                        <div className="type-vagon">
-                                            <img src={IcoPlackartVagon} alt="" />
-                                            <p>Плацкарт</p>
-                                        </div>
-                                        <div className="type-vagon">
-                                            <img src={IcoCupeVagon} alt="" />
-                                            <p>Купе</p>
-                                        </div>
-                                        <div className="type-vagon">
-                                            <img src={IcoLuxVagon} alt="" />
-                                            <p>Люкс</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                <SelectedSeatCard />
+                                
                             </div>
                             <Link to="/passengers" title="Пассажиры">
                                 <button className="btn-next-page active-btn">ДАЛЕЕ</button>
