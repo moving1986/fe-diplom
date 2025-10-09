@@ -16,9 +16,7 @@ import { buildSearchParams } from '../utils/queryBuilder'
 
 const SelectTrain = () => {
     const dispatch = useDispatch();
-
     const tripsSearchState = useSelector(state => state.tripsSearch);
-
 
     const [fromCityId, setFromCityId] = useState(null);
     const [toCityId, setToCityId] = useState(null);
@@ -30,7 +28,7 @@ const SelectTrain = () => {
     const [sort, setSort] = useState('time');
     const [currentPage, setCurrentPage] = useState(1);
     const [offset, setOffset] = useState(0);
-
+    const [isFirstLoad, setIsFirstLoad] = useState(true);
 
     useEffect(() => {
         const fetchCityIds = async () => {
@@ -55,45 +53,61 @@ const SelectTrain = () => {
         fetchCityIds();
     }, [tripsSearchState.from_city, tripsSearchState.to_city]);
 
-
-
     useEffect(() => {
         const fetchRoutes = async () => {
             if (!fromCityId || !toCityId) return;
 
             try {
                 setLoading(true);
-            const queryParams = buildSearchParams({
-    baseParams: {
-        from_city_id: fromCityId,
-        to_city_id: toCityId,
-        limit: limit,
-        offset: offset,
-        sort: sort
-    },
-    filters: {
-        date_start_arrival: 'date_start_arrival',
-        date_end_arrival: 'date_end_arrival',
-        date_start_departure: 'date_start_departure',
-        date_end_departure: 'date_end_departure',
-        have_first_class: 'have_first_class',
-        have_second_class: 'have_second_class',
-        have_third_class: 'have_third_class',
-        have_fourth_class: 'have_fourth_class',
-        price_from: 'price_from',
-        price_to: 'price_to'
-    },
-    state: tripsSearchState
-});
-                const routesResponse = await fetch(`${BASE_URL}/routes?${queryParams}`);
 
+
+                const baseQueryParams = new URLSearchParams({
+                    from_city_id: fromCityId,
+                    to_city_id: toCityId,
+                    limit: limit,
+                    offset: offset,
+                    sort: sort
+                });
+
+                let queryParams;
+
+                if (isFirstLoad) {
+
+                    queryParams = baseQueryParams;
+                    setIsFirstLoad(false);
+                } else {
+
+                    queryParams = buildSearchParams({
+                        baseParams: {
+                            from_city_id: fromCityId,
+                            to_city_id: toCityId,
+                            limit: limit,
+                            offset: offset,
+                            sort: sort
+                        },
+                        filters: {
+                            date_start_arrival: 'date_start_arrival',
+                            date_end_arrival: 'date_end_arrival',
+                            date_start_departure: 'date_start_departure',
+                            date_end_departure: 'date_end_departure',
+                            have_first_class: 'have_first_class',
+                            have_second_class: 'have_second_class',
+                            have_third_class: 'have_third_class',
+                            have_fourth_class: 'have_fourth_class',
+                            price_from: 'price_from',
+                            price_to: 'price_to'
+                        },
+                        state: tripsSearchState
+                    });
+                }
+
+                const routesResponse = await fetch(`${BASE_URL}/routes?${queryParams}`);
 
                 if (!routesResponse.ok) {
                     throw new Error(`HTTP error! status: ${routesResponse.status}`);
                 }
 
                 const responseData = await routesResponse.json();
-
 
                 Object.entries(responseData).forEach(([name, value]) => {
                     dispatch(changeTripsSearchInput({ name, value }));
@@ -110,10 +124,21 @@ const SelectTrain = () => {
         };
 
         fetchRoutes();
-    }, [fromCityId, toCityId, limit, sort, offset,
+    }, [
+        fromCityId, toCityId, limit, sort, offset,
         tripsSearchState.date_start_arrival,
-        tripsSearchState.date_end_arrival
+        tripsSearchState.date_end_arrival,
+
+        tripsSearchState.date_start_departure,
+        tripsSearchState.date_end_departure,
+        tripsSearchState.have_first_class,
+        tripsSearchState.have_second_class,
+        tripsSearchState.have_third_class,
+        tripsSearchState.have_fourth_class,
+        tripsSearchState.price_from,
+        tripsSearchState.price_to
     ]);
+
 
     const handleLimitChange = (newLimit) => {
         setLimit(newLimit);
