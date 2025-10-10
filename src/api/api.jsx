@@ -40,8 +40,8 @@ const Api = (url, initialData = null) => {
     return () => {
       inProgress = false;
     };
-
-  }, [url, initialData]);
+// eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [url]);
 
   return { data, error, loading };
 };

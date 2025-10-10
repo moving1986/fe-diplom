@@ -67,7 +67,8 @@ const MainSearchForm = ({mainContainer, formClass, headerSearch, inputsBlcokSear
         }, 300);
 
         return () => clearTimeout(timer);
-    }, [formData.from_city, fromCitySuggestions]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [formData.from_city]);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -79,7 +80,8 @@ const MainSearchForm = ({mainContainer, formClass, headerSearch, inputsBlcokSear
         }, 300);
 
         return () => clearTimeout(timer);
-    }, [formData.to_city, toCitySuggestions]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [formData.to_city]);
 
     const handleInputChange = (field, value) => {
         setFormData(prev => ({

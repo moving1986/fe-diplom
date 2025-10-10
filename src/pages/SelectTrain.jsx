@@ -134,7 +134,8 @@ const SelectTrain = () => {
         };
 
         fetchRoutes();
-    }, [
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [ 
         fromCityId, toCityId, limit, sort, offset,
         tripsSearchState.date_start_arrival,
         tripsSearchState.date_end_arrival,
