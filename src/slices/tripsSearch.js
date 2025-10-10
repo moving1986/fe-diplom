@@ -23,10 +23,6 @@ const initialState = {
   start_arrival_hour_to: 24,
   start_departure_hour_from: 0,
   start_departure_hour_to: 24,
-  end_departure_hour_from: 0,
-  end_departure_hour_to: 24,
-  end_arrival_hour_from: 0,
-  end_arrival_hour_to: 24,
   to_city: undefined,
 };
 

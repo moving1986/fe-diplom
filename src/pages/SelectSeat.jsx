@@ -5,14 +5,6 @@ import FilterWays from '../components/FilterWays/FilterWays';
 import LastTrips from '../components/LastTrips';
 import Footer from '../components/Footer/Footer';
 
-import IcoDetailsTrain from '../assets/images/ico-details-train.svg';
-import RightTripArrow from '../assets/images/right-trip-arrow.svg';
-import IcoTimeWay from '../assets/images/ico-time-way.svg';
-import IcoSeatVagon from '../assets/images/ico-seat-vagon.svg';
-import IcoPlackartVagon from '../assets/images/ico-plackart-vagon.svg';
-import IcoLuxVagon from '../assets/images/ico-lux-vagon.svg';
-import IcoSelectDifTrainRight from '../assets/images/ico-select-dif-train-right.svg';
-import IcoCupeVagon from '../assets/images/ico-cupe-vagon.svg';
 import SelectSeatCard from '../components/SelectSeat/SelectSeatCard';
 import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';

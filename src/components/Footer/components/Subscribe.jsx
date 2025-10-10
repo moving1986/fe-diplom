@@ -58,7 +58,7 @@ const Subscribe = () => {
     return (
         <>
             <div className="footer-header-subscribe">
-                Подписка
+                Подписка  {isSubscribed && "✓"}
             </div>
             <div className="header-subscribe-form">
                 Будьте в курсе событий

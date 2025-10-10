@@ -1,6 +1,6 @@
 {
   "name": "fe-diplom",
-  "homepage": "https://moving1986.github.io/fe-diplom",
+   "homepage": "https://moving1986.github.io/fe-diplom",
    "version": "0.1.0",
    "private": true,
   "dependencies": {

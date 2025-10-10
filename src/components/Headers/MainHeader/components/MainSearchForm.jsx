@@ -3,12 +3,11 @@ import DatePicker from "react-datepicker";
 import { ru } from 'date-fns/locale';
 import { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { BASE_URL } from '../../../../api/api';
 import './MainSearchForm.css';
 import Button from '../../../Buttons/Button';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { changeTripsSearchInput, selectTripsSearch } from '../../../../slices/tripsSearch';
+import { changeTripsSearchInput } from '../../../../slices/tripsSearch';
 import { validateSearchForm } from '../../../../utils/searchFormValidator';
 import { useCitySuggestions } from '../../../../utils/useCitySuggestions';
 import ImgCalendar from '../../../../assets/images/input-date-bg.svg';
@@ -20,8 +19,7 @@ const MainSearchForm = ({mainContainer, formClass, headerSearch, inputsBlcokSear
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const formSearch = useSelector(selectTripsSearch);
-
+ 
     const [formData, setFormData] = useState({
         from_city: '',
         to_city: '',
@@ -69,7 +67,7 @@ const MainSearchForm = ({mainContainer, formClass, headerSearch, inputsBlcokSear
         }, 300);
 
         return () => clearTimeout(timer);
-    }, [formData.from_city]);
+    }, [formData.from_city, fromCitySuggestions]);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -81,7 +79,7 @@ const MainSearchForm = ({mainContainer, formClass, headerSearch, inputsBlcokSear
         }, 300);
 
         return () => clearTimeout(timer);
-    }, [formData.to_city]);
+    }, [formData.to_city, toCitySuggestions]);
 
     const handleInputChange = (field, value) => {
         setFormData(prev => ({
