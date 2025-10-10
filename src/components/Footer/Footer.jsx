@@ -6,6 +6,7 @@ import IcoFooterContactLoc from "../../assets/images/ico-footer-contact-loc.svg"
 
 import Subscribe from './components/Subscribe';
 import SocSubscribe from './components/SocSubscribe';
+import { Link } from 'react-router-dom';
 
 
 const Footer = () => {
@@ -46,7 +47,7 @@ const Footer = () => {
             <div className="footer-end-line">
                 <div className="container footer-end-line__inner">
                     <div><span className="logo-text">
-                        <a href="">Logo</a>
+                        <Link to="/">Logo</Link>
                     </span></div>
                     <div><img src="./images/ico-footer-arrow-up.svg" alt="" /></div>
                     <div className="footer-copyright">2018 WEB</div>

@@ -1,10 +1,7 @@
 {
   "name": "fe-diplom",
-   "imports": {
-    "#*": "./src/*"
-  },
   "homepage": "https://moving1986.github.io/fe-diplom",
-  "version": "0.1.0",
+   "version": "0.1.0",
    "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.9.0",

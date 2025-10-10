@@ -41,7 +41,7 @@ const Api = (url, initialData = null) => {
       inProgress = false;
     };
 
-  }, [url]);
+  }, [url, initialData]);
 
   return { data, error, loading };
 };
