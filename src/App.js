@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, HashRouter, BrowserRouter } from 'react-router-dom';
 import './App.css';
 import './assets/css/fonts.css';
 import Home from './pages/Home';
@@ -13,6 +13,7 @@ function App() {
   return (
     <div className="App">
               <main>
+         
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/select-train" element={<SelectTrain />} />
@@ -24,6 +25,7 @@ function App() {
                               
                     <Route path="*" element={<div>Страница не найдена</div>} />
                 </Routes>
+              
               </main>
         </div>
   );
